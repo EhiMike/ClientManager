@@ -123,6 +123,7 @@
     <Compile Include="domain\Abbonamento.cs" />
     <Compile Include="domain\Presenza.cs" />
     <Compile Include="domain\Provincia.cs" />
+    <Compile Include="domain\VariazioneEconomica.cs" />
     <Compile Include="support\DBHelper.cs" />
     <Compile Include="support\Helper.cs" />
     <Compile Include="domain\Utente.cs" />

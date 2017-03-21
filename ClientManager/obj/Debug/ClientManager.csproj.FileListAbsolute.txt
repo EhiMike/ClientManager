@@ -54,3 +54,27 @@ C:\Users\Michael\Documents\Visual Studio 2015\Projects\ClientManager\ClientManag
 C:\Users\Michael\Documents\Visual Studio 2015\Projects\ClientManager\ClientManager\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\Michael\Documents\Visual Studio 2015\Projects\ClientManager\ClientManager\bin\Debug\MySql.Web.xml
 C:\Users\Michael\Documents\Visual Studio 2015\Projects\ClientManager\ClientManager\obj\Debug\ClientManager.csproj.ClientManager.exe.config
+C:\Lavori\ClientManager\ClientManager\bin\Debug\ClientManager.exe.config
+C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.pdb
+C:\Lavori\ClientManager\ClientManager\bin\Debug\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\bin\Debug\ClientManager.pdb
+C:\Lavori\ClientManager\ClientManager\bin\Debug\MySql.Data.dll
+C:\Lavori\ClientManager\ClientManager\bin\Debug\MySql.Data.Entity.dll
+C:\Lavori\ClientManager\ClientManager\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Lavori\ClientManager\ClientManager\bin\Debug\MySql.Web.dll
+C:\Lavori\ClientManager\ClientManager\bin\Debug\MySql.Data.xml
+C:\Lavori\ClientManager\ClientManager\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Lavori\ClientManager\ClientManager\bin\Debug\MySql.Web.xml
+C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.csprojResolveAssemblyReference.cache
+C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.csproj.ClientManager.exe.config
+C:\Lavori\ClientManager\ClientManager\obj\Debug\MainWindow.g.cs
+C:\Lavori\ClientManager\ClientManager\obj\Debug\WindowUtente.g.cs
+C:\Lavori\ClientManager\ClientManager\obj\Debug\App.g.cs
+C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager_MarkupCompile.cache
+C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager_MarkupCompile.lref
+C:\Lavori\ClientManager\ClientManager\obj\Debug\MainWindow.baml
+C:\Lavori\ClientManager\ClientManager\obj\Debug\WindowUtente.baml
+C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.g.resources
+C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.Properties.Resources.resources
+C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.csproj.GenerateResource.Cache

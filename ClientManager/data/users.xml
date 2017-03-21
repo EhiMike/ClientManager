@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<USERS lastUpdate="21/03/2017 00:11:49">
+<USERS lastUpdate="21/03/2017 22:00:30">
   <USER identifier="1" nome="MICHAEL" cognome="FERRONATO" sesso="M" codicefiscale="FRRMHL90T01E970Q" datanascita="01/12/1990" luogonascita="MAROSTICA" email="michael.ferronato@gmail.com" telefono="3454544433" indirizzo="VIA EUGENIO MONTALE 17 A" provincia="VI" stato="ITALIA" scadenzaabb="28/02/2017" scadenzamed="30/10/2017" />
   <USER identifier="2" nome="MORGAN" cognome="FERRONATO" sesso="M" codicefiscale="FRRMGN97B20A703N" datanascita="20/02/1997" luogonascita="BASSANO DEL GRAPPA" email="morgan.ferronato@gmail.com" telefono="3460384767" indirizzo="VIA MONTALE 17 A" provincia="VI" stato="ITALIA" scadenzaabb="28/02/2017" scadenzamed="30/09/2017" />
-  <USER identifier="20173210152" nome="MILENA" cognome="FUSINA" sesso="F" codicefiscale="FSNMLN89M64A703J" datanascita="24/08/1989" luogonascita="BASSANO DEL GRAPPA" email="fusina.milena@tiscali.it" telefono="3484092254" indirizzo="VIA SANT'ANTONIO" provincia="VI" stato="ITALIA" scadenzaabb="22/03/2017" scadenzamed="20/03/2017" />
   <USER identifier="3" nome="MASCIA" cognome="PIGATO" sesso="F" codicefiscale="PGTMSC71A54C743I" datanascita="14/01/1971" luogonascita="CITTADELLA" email="mascia.pigato@alice.it" telefono="3391382278" indirizzo="VIA MONTALE 17 A" provincia="VI" stato="ITALIA" scadenzaabb="31/03/2017" scadenzamed="01/06/2017" />
+  <USER identifier="4" nome="MILENA" cognome="FUSINA" sesso="F" codicefiscale="FSNMLN89M64A703J" datanascita="24/08/1989" luogonascita="BASSANO DEL GRAPPA" email="fusina.milena@tiscali.it" telefono="3484092254" indirizzo="VIA SANT'ANTONIO" provincia="VI" stato="ITALIA" scadenzaabb="22/03/2017" scadenzamed="20/03/2017" />
 </USERS>

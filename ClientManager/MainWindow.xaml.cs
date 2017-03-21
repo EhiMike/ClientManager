@@ -22,11 +22,7 @@ namespace ClientManager
         {
             InitializeComponent();
             DBHelper.initDBConnection();
-            DataContext = new List<Presenza>
-            {
-                
-            };
-
+          
         }
 
         private void reloadUtenti()
@@ -40,6 +36,8 @@ namespace ClientManager
             {
                 cbClient.SelectedIndex = 0;
             }
+            loadUtentiTabella();
+
         }
 
         private void riempiDatiUtente()
@@ -76,7 +74,7 @@ namespace ClientManager
                             btnIngresso.IsEnabled = false;
                             btnUscita.IsEnabled = true;
                         }
-                        loadPresenzeTabella();
+                        
 
                     }
                     else
@@ -84,7 +82,7 @@ namespace ClientManager
                         btnIngresso.IsEnabled = true;
                         btnUscita.IsEnabled = false;
                     }
-                    
+                    loadPresenzeTabella();
                 }
 
             }
@@ -240,6 +238,25 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
+                Helper.Logger(ex.Message);
+            }
+        }
+
+        private void loadUtentiTabella()
+        {
+            try
+            {
+                dataGridRiepilogo.Items.Clear();
+
+                foreach (Utente user in listaUtenti.Values)
+                {
+                    dataGridRiepilogo.Items.Add(user);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Helper.Logger(ex.Message);
             }
         }
     }

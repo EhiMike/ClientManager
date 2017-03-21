@@ -32,3 +32,4 @@ readClienti.readPresenze ->Chiave già utilizzata da una voce esistente.
 readClienti.readPresenze ->Chiave già utilizzata da una voce esistente.
 readClienti.readPresenze ->Chiave già utilizzata da una voce esistente.
 Riferimento a un oggetto non impostato su un'istanza di oggetto.
+Riferimento a un oggetto non impostato su un'istanza di oggetto.

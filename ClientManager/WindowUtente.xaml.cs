@@ -36,9 +36,12 @@ namespace ClientManager
             if (update)
             {
                 this.Title = "Modifica utente";
+               
             }else
             {
                 this.Title = "Nuovo utente";
+                btnCaricaCI.IsEnabled = false;
+                btnCaricaVM.IsEnabled = false;
             }
 
             comboBoxProvincia.Items.Clear();
