@@ -1,0 +1,62 @@
+﻿<Window x:Class="ClientManager.WindowUtente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientManager"
+        mc:Ignorable="d"
+        Title="WindowUtente" Height="396.125" Width="838.5">
+    <Grid Margin="0,0,2,1" HorizontalAlignment="Right" Width="818">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="266*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="167*"/>
+            <ColumnDefinition Width="157*"/>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="307*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblNome" Content="Nome" HorizontalAlignment="Left" Margin="5,7,0,249" Width="145" Grid.Row="1" Grid.RowSpan="4"/>
+        <Label x:Name="lblCognome" Content="Cognome" HorizontalAlignment="Left" Height="30" Margin="5,32,0,0" VerticalAlignment="Top" Width="145" Grid.Row="2" Grid.RowSpan="3"/>
+        <Label x:Name="lblSesso" Content="Sesso" HorizontalAlignment="Left" Margin="15,7,0,6" Width="105" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblCF" Content="Codice Fiscale" Height="30" Margin="5,14,156,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="4"/>
+        <Label x:Name="lblDataNascita" Content="Data di Nascita" HorizontalAlignment="Left" Height="30" Margin="15,32,0,0" VerticalAlignment="Top" Width="105" Grid.Column="4" Grid.Row="2" Grid.RowSpan="3"/>
+        <Label x:Name="lblLuogoNascita" Content="Luogo di nascita" HorizontalAlignment="Right" Height="30" Margin="0,14,302,0" VerticalAlignment="Top" Width="105" Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblIndirizzo" Content="Indirizzo" HorizontalAlignment="Left" Height="30" Margin="5,49,0,0" VerticalAlignment="Top" Width="145" Grid.Row="4"/>
+        <Label x:Name="lblStato" Content="Stato" HorizontalAlignment="Left" Height="30" Margin="124,49,0,0" VerticalAlignment="Top" Width="47" Grid.Column="5" Grid.Row="4"/>
+        <Label x:Name="lblProvincia" Content="Provincia" HorizontalAlignment="Left" Height="30" Margin="15,49,0,0" VerticalAlignment="Top" Width="105" Grid.Column="4" Grid.Row="4"/>
+        <Label x:Name="lblEmail" Content="Email" HorizontalAlignment="Left" Height="30" Margin="5,84,0,0" VerticalAlignment="Top" Width="145" Grid.Row="4"/>
+        <Label x:Name="lblTelefono" Content="Telefono" HorizontalAlignment="Left" Height="30" Margin="5,119,0,0" VerticalAlignment="Top" Width="145" Grid.Row="4"/>
+        <Label x:Name="lblScadAbb" Content="Scadenza Abbonamento" HorizontalAlignment="Left" Height="30" Margin="5,154,0,0" VerticalAlignment="Top" Width="145" Grid.Row="4"/>
+        <Label x:Name="lblVisita" Content="Scadenza Visita Medica" HorizontalAlignment="Left" Height="30" Margin="17,154,0,0" VerticalAlignment="Top" Width="145" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="4"/>
+        <TextBox x:Name="textBoxNome" CharacterCasing="Upper" HorizontalAlignment="Left" Height="30" Margin="155,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="textBoxCognome" CharacterCasing="Upper" HorizontalAlignment="Left" Height="30" Margin="155,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="3" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="textBoxCF" CharacterCasing="Upper" HorizontalAlignment="Left" Height="30" Margin="155,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="4" Grid.Row="4" MaxLength="16" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="rbSessoM" Content="M" Grid.Column="5" HorizontalAlignment="Left" Height="21" Margin="5,6,0,0" VerticalAlignment="Top" Width="65" Grid.Row="2" GroupName="radioGroupSesso"/>
+        <RadioButton x:Name="rbSessoF" Content="F" Grid.Column="5" HorizontalAlignment="Left" Height="21" Margin="90,6,0,0" VerticalAlignment="Top" Width="65" Grid.Row="2" GroupName="radioGroupSesso"/>
+        <DatePicker x:Name="datePickerNascita" HorizontalAlignment="Right" Height="30" Margin="0,0,153,0" VerticalAlignment="Top" Width="150" Grid.Column="5" Grid.Row="3" Grid.RowSpan="2"/>
+        <TextBox x:Name="textBoxLuogoNascita" CharacterCasing="Upper"  HorizontalAlignment="Left" Height="30" Margin="0,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="294" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="textBoxIndirizzo" CharacterCasing="Upper" HorizontalAlignment="Left" Height="30" Margin="155,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="4" Grid.Row="4" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="comboBoxProvincia" Grid.Column="5" HorizontalAlignment="Left" Height="30" Margin="1,50,0,0" Grid.Row="4" VerticalAlignment="Top" Width="118"/>
+        <ComboBox x:Name="comboBoxStato" Grid.Column="5" HorizontalAlignment="Left" Height="30" Margin="176,49,0,0" Grid.Row="4" VerticalAlignment="Top" Width="118"/>
+        <TextBox x:Name="textBoxMail" CharacterCasing="Lower" HorizontalAlignment="Left" Height="30" Margin="155,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="653" Grid.ColumnSpan="6" Grid.Row="4"  VerticalContentAlignment="Center"/>
+        <TextBox x:Name="textBoxTelefono" CharacterCasing="Upper" HorizontalAlignment="Left" Height="30" Margin="155,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="654" Grid.ColumnSpan="6" Grid.Row="4"  VerticalContentAlignment="Center"/>
+        <DatePicker x:Name="datePickerAbb" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="30" Margin="155,154,0,0" VerticalAlignment="Top" Width="231" Grid.Row="4"/>
+        <DatePicker x:Name="datePickerVM" HorizontalAlignment="Left" Height="30" Margin="48,154,0,0" VerticalAlignment="Top" Width="245" Grid.Row="4" Grid.Column="5"/>
+        <Button x:Name="btnConferma" Grid.ColumnSpan="3" Content="Conferma" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="150,253,0,0" Grid.Row="4" VerticalAlignment="Top" Width="80" Click="btnConferma_Click"/>
+        <Button x:Name="btnAnnulla" Content="Annulla" Grid.Column="4" HorizontalAlignment="Left" Height="29" Margin="10,253,0,0" Grid.Row="4" VerticalAlignment="Top" Width="80" Click="btnAnnulla_Click"/>
+        <Label x:Name="lblCartaIdentita" Content="Carta Identità" HorizontalAlignment="Left" Height="30" Margin="5,189,0,0" VerticalAlignment="Top" Width="145" Grid.Row="4"/>
+        <Label x:Name="lblVisita_Copy" Content="Visita Medica" HorizontalAlignment="Left" Height="30" Margin="17,189,0,0" VerticalAlignment="Top" Width="145" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="4"/>
+        <Button x:Name="btnCaricaCI" Grid.ColumnSpan="3" Content="Carica " HorizontalAlignment="Left" Height="30" Margin="112,189,0,0" Grid.Row="4" VerticalAlignment="Top" Width="109" Grid.Column="1" Click="btnCaricaCI_Click"/>
+        <Button x:Name="btnCaricaVM" Content="Carica" HorizontalAlignment="Left" Height="30" Margin="185,189,0,0" Grid.Row="4" VerticalAlignment="Top" Width="109" Grid.Column="5" Click="btnCaricaVM_Click"/>
+        <Label x:Name="lblCIPresente" Content="No" HorizontalAlignment="Left" Height="30" Margin="155,189,0,0" VerticalAlignment="Top" Width="117" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblPresenteVM" Content="No" HorizontalAlignment="Left" Height="30" Margin="48,189,0,0" VerticalAlignment="Top" Width="132" Grid.Row="4" Grid.Column="5"/>
+
+    </Grid>
+</Window>

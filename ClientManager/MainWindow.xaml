@@ -1,0 +1,89 @@
+﻿<Window x:Class="ClientManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientManager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="629.5" Width="864.375" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="183*"/>
+            <ColumnDefinition Width="673*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="tabControlGeneral" Grid.ColumnSpan="2">
+            <TabItem x:Name="tabItemClient" Header="Clienti">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="104*"/>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="110*"/>
+                        <ColumnDefinition Width="146*"/>
+                        <ColumnDefinition Width="422*"/>
+                        <ColumnDefinition Width="22*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblClient" Content="Cliente" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="49" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="tbClient" CharacterCasing="Upper" HorizontalAlignment="Left" Height="30" Margin="51,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Grid.ColumnSpan="4" Grid.Column="1" TextChanged="tbClient_TextChanged" VerticalContentAlignment="Center"/>
+                    <ComboBox x:Name="cbClient" HorizontalAlignment="Left" Height="30" Margin="70,10,0,0" VerticalAlignment="Top" Width="294" Grid.Column="3" Grid.ColumnSpan="4" SelectionChanged="cbClient_SelectionChanged" VerticalContentAlignment="Center"/>
+                    <Label x:Name="lblNome" Content="Nome" HorizontalAlignment="Left" Height="30" Margin="5,46,0,0" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2"/>
+                    <Label x:Name="lblCognome" Content="Cognome" HorizontalAlignment="Left" Height="30" Margin="0,46,0,0" VerticalAlignment="Top" Width="135" Grid.Column="6"/>
+                    <Label x:Name="lblSesso" Content="Sesso" HorizontalAlignment="Left" Height="30" Margin="5,81,0,0" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="3"/>
+                    <Label x:Name="lblCF" Content="Codice Fiscale" Height="30" Margin="0,81,274,0" VerticalAlignment="Top" Grid.Column="6"/>
+                    <Label x:Name="lblDataNascita" Content="Data di Nascita" HorizontalAlignment="Left" Height="30" Margin="5,116,0,0" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="3"/>
+                    <Label x:Name="lblLuogoNascita" Content="Luogo di nascita" HorizontalAlignment="Left" Height="30" Margin="0,116,0,0" VerticalAlignment="Top" Width="135" Grid.Column="6"/>
+                    <Label x:Name="lblIndirizzo" Content="Indirizzo" HorizontalAlignment="Left" Height="30" Margin="5,151,0,0" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="3"/>
+                    <Label x:Name="lblStato" Content="Stato" HorizontalAlignment="Left" Height="30" Margin="327,151,0,0" VerticalAlignment="Top" Width="107" Grid.Column="6" Grid.ColumnSpan="2"/>
+                    <Label x:Name="lblProvincia" Content="Provincia" HorizontalAlignment="Left" Height="30" Margin="0,151,0,0" VerticalAlignment="Top" Width="135" Grid.Column="6"/>
+                    <Label x:Name="lblEmail" Content="Email" HorizontalAlignment="Left" Height="30" Margin="5,186,0,0" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="3"/>
+                    <Label x:Name="lblTelefono" Content="Telefono" HorizontalAlignment="Left" Height="30" Margin="0,186,0,0" VerticalAlignment="Top" Width="135" Grid.Column="6"/>
+                    <Label x:Name="lblScadAbb" Content="Scadenza Abbonamento" HorizontalAlignment="Left" Height="30" Margin="5,221,0,0" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="3"/>
+                    <Label x:Name="lblVisita" Content="Scadenza visita medica" HorizontalAlignment="Left" Height="30" Margin="0,221,0,0" VerticalAlignment="Top" Width="135" Grid.Column="6"/>
+                    <TabControl x:Name="tabControlClient" Grid.ColumnSpan="8" Margin="7,293,0,32">
+                        <TabItem Header="Presenze">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="108*"/>
+                                    <ColumnDefinition Width="77*"/>
+                                    <ColumnDefinition Width="78*"/>
+                                    <ColumnDefinition Width="235*"/>
+                                </Grid.ColumnDefinitions>
+                                <DataGrid ItemsSource="{Binding Presenza}" x:Name="dataGrid" Margin="10,45,10,10" CanUserReorderColumns="False" Grid.ColumnSpan="4" CanUserSortColumns="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Data" IsReadOnly="True" CanUserSort="True" Width="*" Binding="{Binding Path=Data, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}"/>
+                                        <DataGridTextColumn Header="Ora In" IsReadOnly="True" Width="*" Binding="{Binding Path=OraIngresso}"/>
+                                        <DataGridTextColumn Header="Ora Out" IsReadOnly="True" Width="*" Binding="{Binding Path=OraUscita}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <Button x:Name="btnIngresso" Content="Ingresso" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="118" Click="btnIngresso_Click"/>
+                                <Button x:Name="btnUscita" Content="Uscita" HorizontalAlignment="Left" Height="30" Margin="133,10,0,0" VerticalAlignment="Top" Width="118" Grid.ColumnSpan="2" Click="btnUscita_Click"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                    <Label x:Name="lblNomeVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,46,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="3" Grid.Column="3"/>
+                    <Label x:Name="lblSessoVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,81,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="3" Grid.Column="3"/>
+                    <Label x:Name="lblDataNascitaVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,116,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="3" Grid.Column="3"/>
+                    <Label x:Name="lblIndirizzoVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,151,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="3" Grid.Column="3"/>
+                    <Label x:Name="lblEmailVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,186,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="3"/>
+                    <Label x:Name="lblScadAbbVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,221,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="3" Grid.Column="3"/>
+                    <Label x:Name="lblCognomeVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="140,46,0,0" VerticalAlignment="Top" Width="259" Grid.Column="6"/>
+                    <Label x:Name="lblCFVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="140,81,0,0" VerticalAlignment="Top" Width="259" Grid.Column="6"/>
+                    <Label x:Name="lblLuogoNascitaVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="140,116,0,0" VerticalAlignment="Top" Width="259" Grid.Column="6"/>
+                    <Label x:Name="lblProvinciaVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="140,151,0,0" VerticalAlignment="Top" Width="182" Grid.Column="6"/>
+                    <Label x:Name="lblVisitaVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="140,221,0,0" VerticalAlignment="Top" Width="272" Grid.Column="6"/>
+                    <Label x:Name="lblTelefonoVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="140,186,0,0" VerticalAlignment="Top" Width="272" Grid.Column="6"/>
+                    <Button x:Name="btnNuovo" Content="Nuovo" Grid.Column="6" HorizontalAlignment="Left" Height="30" Margin="250,10,0,0" VerticalAlignment="Top" Width="58" ToolTip="Creare nuovo cliente" Click="btnNuovo_Click"/>
+                    <Button x:Name="btnModifica" Content="Modifica" Grid.Column="6" HorizontalAlignment="Left" Height="30" Margin="313,10,0,0" VerticalAlignment="Top" Width="58" ToolTip="Modifica dati cliente" Click="btnModifica_Click"/>
+                    <Button x:Name="btnElimina" Content="Elimina" Grid.Column="6" HorizontalAlignment="Left" Height="30" Margin="376,10,0,0" VerticalAlignment="Top" Width="58" ToolTip="Elimina cliente" Grid.ColumnSpan="2" IsEnabled="False" Click="btnElimina_Click"/>
+                    <Label x:Name="lblDocumenti" Content="Scadenza Abbonamento" HorizontalAlignment="Left" Height="30" Margin="5,256,0,0" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="3"/>
+                    <Button x:Name="btnVisita" Content="Visita Medica" Grid.Column="4" Margin="10,259,10,0" VerticalAlignment="Top" Click="btnVisita_Click" Width="90" Grid.Row="3"/>
+                    <Button x:Name="btnCI" Content="C.I." Grid.Column="5" HorizontalAlignment="Left" Height="20" Margin="10,259,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="2.593,0.45" Click="btnCI_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Spese Palestra">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-34"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

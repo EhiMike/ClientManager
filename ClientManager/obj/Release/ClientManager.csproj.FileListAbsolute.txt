@@ -1,0 +1,39 @@
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\ClientManager.exe.config
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\ClientManager.exe
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\ClientManager.pdb
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\MainWindow.g.cs
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\App.g.cs
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager_MarkupCompile.cache
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager_MarkupCompile.lref
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\MainWindow.baml
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager.g.resources
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager.Properties.Resources.resources
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager.csproj.GenerateResource.Cache
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager.exe
+c:\users\michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager.pdb
+C:\Lavori\ClientManager\ClientManager\ClientManager\bin\Release\ClientManager.exe.config
+C:\Lavori\ClientManager\ClientManager\ClientManager\bin\Release\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\ClientManager\bin\Release\ClientManager.pdb
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\MainWindow.g.cs
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\WindowUtente.g.cs
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\App.g.cs
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\ClientManager_MarkupCompile.cache
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\ClientManager_MarkupCompile.lref
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\MainWindow.baml
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\WindowUtente.baml
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\ClientManager.g.resources
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\ClientManager.Properties.Resources.resources
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\ClientManager.csproj.GenerateResource.Cache
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\Release\ClientManager.pdb
+C:\Users\Michael\Documents\Visual Studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Documents\Visual Studio 2015\Projects\ClientManager\ClientManager\obj\Release\WindowUtente.g.cs
+C:\Users\Michael\Documents\Visual Studio 2015\Projects\ClientManager\ClientManager\obj\Release\WindowUtente.baml
+C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\MySql.Data.dll
+C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\MySql.Data.Entity.dll
+C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\MySql.Data.Entity.EF6.dll
+C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\MySql.Web.dll
+C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\MySql.Data.xml
+C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\MySql.Data.Entity.EF6.xml
+C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\MySql.Web.xml
+C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager.csproj.ClientManager.exe.config

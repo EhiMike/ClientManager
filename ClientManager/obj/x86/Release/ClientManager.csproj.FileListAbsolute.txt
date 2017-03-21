@@ -1,0 +1,15 @@
+C:\Lavori\ClientManager\ClientManager\ClientManager\bin\x86\Release\ClientManager.exe.config
+C:\Lavori\ClientManager\ClientManager\ClientManager\bin\x86\Release\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\ClientManager\bin\x86\Release\ClientManager.pdb
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\MainWindow.g.cs
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\WindowUtente.g.cs
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\App.g.cs
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\ClientManager_MarkupCompile.cache
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\ClientManager_MarkupCompile.lref
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\MainWindow.baml
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\WindowUtente.baml
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\ClientManager.g.resources
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\ClientManager.Properties.Resources.resources
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\ClientManager.csproj.GenerateResource.Cache
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Release\ClientManager.pdb

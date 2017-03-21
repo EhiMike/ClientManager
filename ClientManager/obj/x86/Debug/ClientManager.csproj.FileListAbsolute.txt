@@ -1,0 +1,15 @@
+C:\Lavori\ClientManager\ClientManager\ClientManager\bin\x86\Debug\ClientManager.exe.config
+C:\Lavori\ClientManager\ClientManager\ClientManager\bin\x86\Debug\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\ClientManager\bin\x86\Debug\ClientManager.pdb
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\MainWindow.g.cs
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\WindowUtente.g.cs
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\App.g.cs
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\ClientManager_MarkupCompile.cache
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\ClientManager_MarkupCompile.lref
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\MainWindow.baml
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\WindowUtente.baml
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\ClientManager.g.resources
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\ClientManager.Properties.Resources.resources
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\ClientManager.csproj.GenerateResource.Cache
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x86\Debug\ClientManager.pdb
