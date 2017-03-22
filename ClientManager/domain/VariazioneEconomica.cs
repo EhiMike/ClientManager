@@ -112,5 +112,10 @@ namespace ClientManager.domain
                 importoAvere = value;
             }
         }
+
+        public bool isDare()
+        {
+            return dareAvere == 'D';
+        }
     }
 }

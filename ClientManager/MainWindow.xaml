@@ -8,8 +8,8 @@
         Title="Gestione Palestra" Height="629.5" Width="864.375" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="183*"/>
-            <ColumnDefinition Width="673*"/>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="163*"/>
         </Grid.ColumnDefinitions>
         <TabControl x:Name="tabControlGeneral" Grid.ColumnSpan="2">
             <TabItem x:Name="tabItemClient" Header="Anagrafica">
@@ -102,18 +102,9 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Contabilità" Margin="-2,-2,-2,0">
-                <Grid x:Name="dataGridContabilita" Background="#FFE5E5E5" Margin="0,3,0,-37">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="7*"/>
-                        <ColumnDefinition Width="7*"/>
-                        <ColumnDefinition Width="46*"/>
-                        <ColumnDefinition Width="28*"/>
-                        <ColumnDefinition Width="53*"/>
-                        <ColumnDefinition Width="127*"/>
-                        <ColumnDefinition Width="582*"/>
-                    </Grid.ColumnDefinitions>
-                    <DataGrid ItemsSource="{Binding VariazioneEconomica}" x:Name="dataGridRiepilogo1" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="7" CanUserReorderColumns="False">
+            <TabItem Header="Contabilità" VerticalAlignment="Top" Width="54">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid ItemsSource="{Binding VariazioneEconomica}" x:Name="dataGridVariazioni" CanUserReorderColumns="False" Margin="0,41,0,-7">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Data}"  Width="*" IsReadOnly="True" Header="Data"/>
                             <DataGridTextColumn Binding="{Binding DescrizioneDare}" Width="*" IsReadOnly="True" Header="Descrizione Dare"/>
@@ -122,6 +113,11 @@
                             <DataGridTextColumn Binding="{Binding ImportoAvere}" Width="*" IsReadOnly="True" Header="Importo Avere"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <TextBox x:Name="txtVariazione" Margin="195,3,0,0" TextWrapping="Wrap" TextChanged="txtVariazione_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Width="420" Height="25"/>
+                    <DatePicker x:Name="datePickerVariazione" HorizontalAlignment="Left" Height="25" Margin="10,3,0,0" VerticalAlignment="Top" Width="180"/>
+                    <TextBox x:Name="txtImportoVariazione" Height="25" Margin="661,2,0,0" TextWrapping="Wrap" Width="70" TextChanged="txtImportoVariazione_TextChanged" PreviewTextInput="txtImportoVariazione_PreviewTextInput" MaxWidth="70" MaxHeight="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button x:Name="btnInserisciVariazione" Content="Inserisci" Margin="736,3,0,0" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="114" Click="btnInserisciVariazione_Click"/>
+                    <ToggleButton x:Name = "toggleDareAvere" Content = "D" Margin = "620,4,0,0" HorizontalAlignment = "Left" RenderTransformOrigin="0.889,3.625" VerticalAlignment="Top" Width="36" Height="24" />
                 </Grid>
             </TabItem>
         </TabControl>

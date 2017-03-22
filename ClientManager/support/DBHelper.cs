@@ -310,6 +310,78 @@ namespace ClientManager
             }
         }
 
+        
+
+        public static void aggiungiVariazione(VariazioneEconomica var)
+        {
+            try
+            {
+                if (conn == null)
+                {
+                    initDBConnection();
+                }
+                cmd = new MySqlCommand();
+                cmd.Connection = conn;
+
+                cmd.CommandText = "INSERT INTO variazioni (data,descr,importo,dare)" +
+                    "VALUES(@data,@descr,@importo,@dare);";
+                cmd.Prepare();
+
+                cmd.Parameters.AddWithValue("@data", var.Data);
+                cmd.Parameters.AddWithValue("@descr", var.isDare() ? var.DescrizioneDare:var.DescrizioneAvere);
+                cmd.Parameters.AddWithValue("@importo", var.isDare() ? var.ImportoDare : var.ImportoAvere);
+                cmd.Parameters.AddWithValue("@dare", var.isDare() ? 1 : 0);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: {0}", ex.ToString());
+
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+            }
+        }
+
+        public static List<VariazioneEconomica> readVariazioni()
+        {
+            List<VariazioneEconomica> listVariazioni = new List<VariazioneEconomica>();
+            try
+            {
+
+                if (conn == null)
+                {
+                    initDBConnection();
+                }
+                string queryString = "SELECT data,descr,importo,dare FROM variazioni";
+                cmd = new MySqlCommand(queryString, conn);
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    VariazioneEconomica var = new VariazioneEconomica(rdr.GetDateTime(0), rdr.GetString(1), rdr.GetDouble(2), rdr.GetBoolean(3));
+                    listVariazioni.Add(var);
+                }
+            }
+            catch (Exception ex)
+            {
+                Helper.Logger(ex.Message);
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+            }
+            return listVariazioni;
+        }
+
         public static void readProvince()
         {
             try

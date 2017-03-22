@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,12 +18,15 @@ namespace ClientManager
     {
         private Utente utenteCorrente = null;
         private SortedList<string,Utente> listaUtenti;
+        private List<VariazioneEconomica> listVariazioni;
 
         public MainWindow()
         {
             InitializeComponent();
             DBHelper.initDBConnection();
-          
+            listVariazioni = DBHelper.readVariazioni();
+            datePickerVariazione.SelectedDate = DateTime.Now;
+            loadVariazioni();
         }
 
         private void reloadUtenti()
@@ -258,6 +262,55 @@ namespace ClientManager
             {
                 Helper.Logger(ex.Message);
             }
+        }
+
+        private void loadVariazioni()
+        {
+            try
+            {
+                dataGridVariazioni.Items.Clear();
+
+                foreach (VariazioneEconomica var in listVariazioni)
+                {
+                    dataGridVariazioni.Items.Add(var);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Helper.Logger(ex.Message);
+            }
+        }
+
+        private bool checkVariazioneCompleta()
+        {
+            return !String.IsNullOrEmpty(txtVariazione.Text) && !String.IsNullOrEmpty(txtImportoVariazione.Text);
+        }
+
+        private void txtVariazione_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btnInserisciVariazione.IsEnabled = checkVariazioneCompleta();
+        }
+
+        private void txtImportoVariazione_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btnInserisciVariazione.IsEnabled = checkVariazioneCompleta();
+        }
+
+        private void txtImportoVariazione_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9,]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void btnInserisciVariazione_Click(object sender, RoutedEventArgs e)
+        {
+            double importo = Double.Parse(txtImportoVariazione.Text);
+            VariazioneEconomica var = new VariazioneEconomica(datePickerVariazione.SelectedDate.Value,txtVariazione.Text, importo,Convert.ToBoolean(toggleDareAvere.IsChecked));
+
+            DBHelper.aggiungiVariazione(var);
+            listVariazioni = DBHelper.readVariazioni();
+            loadVariazioni();
         }
     }
 }
