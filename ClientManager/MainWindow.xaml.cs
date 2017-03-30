@@ -8,6 +8,8 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Forms;
 
 namespace ClientManager
 {
@@ -22,11 +24,38 @@ namespace ClientManager
 
         public MainWindow()
         {
-            InitializeComponent();
-            DBHelper.initDBConnection();
-            listVariazioni = DBHelper.readVariazioni();
-            datePickerVariazione.SelectedDate = DateTime.Now;
-            loadVariazioni();
+            bool start =  false;
+
+            string testAbi = Helper.readRegistryKey("SN");
+            string testDsk = Helper.readRegistryKey("DSK");
+
+            if (!testAbi.Equals("null") && Helper.diskSerial().Equals(testDsk)){
+                start = true;
+            }else
+            {
+                WindowAbi dialog = new WindowAbi();
+                dialog.ShowDialog();
+
+                if (dialog.DialogResult.HasValue && dialog.DialogResult.Value)
+                {
+                    start = true;
+                }
+            }
+            
+            
+            if (start)
+            {
+                InitializeComponent();
+
+                DBHelper.initDBConnection();
+                listVariazioni = DBHelper.readVariazioni();
+                datePickerVariazione.SelectedDate = DateTime.Now;
+                loadVariazioni();
+            }
+            else
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
         }
 
         private void reloadUtenti()
@@ -192,7 +221,7 @@ namespace ClientManager
 
         private void btnElimina_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Eliminando il cliente verranno perse tutte le sue informazioni e la cronologia.Eliminare?", "Attezione", MessageBoxButton.YesNo);
+            MessageBoxResult result = System.Windows.MessageBox.Show("Eliminando il cliente verranno perse tutte le sue informazioni e la cronologia.Eliminare?", "Attezione", MessageBoxButton.YesNo);
             if(MessageBoxResult.Yes == result)
             {
                 utenteCorrente.Attivo = false;
@@ -270,10 +299,21 @@ namespace ClientManager
             {
                 dataGridVariazioni.Items.Clear();
 
+                VariazioneEconomica varTotale = new VariazioneEconomica(DateTime.Now,"TOTALE DARE",0,true);
                 foreach (VariazioneEconomica var in listVariazioni)
                 {
                     dataGridVariazioni.Items.Add(var);
+                    if (var.isDare())
+                    {
+                        varTotale.ImportoDare += var.ImportoDare;
+                    }
+                    else
+                    {
+                        varTotale.ImportoAvere += var.ImportoAvere;
+                    }
                 }
+                varTotale.DescrizioneAvere = "TOTALE AVERE";
+                dataGridVariazioni.Items.Add(varTotale);
 
             }
             catch (Exception ex)
@@ -306,11 +346,13 @@ namespace ClientManager
         private void btnInserisciVariazione_Click(object sender, RoutedEventArgs e)
         {
             double importo = Double.Parse(txtImportoVariazione.Text);
-            VariazioneEconomica var = new VariazioneEconomica(datePickerVariazione.SelectedDate.Value,txtVariazione.Text, importo,Convert.ToBoolean(toggleDareAvere.IsChecked));
+            VariazioneEconomica var = new VariazioneEconomica(datePickerVariazione.SelectedDate.Value,txtVariazione.Text, importo,Convert.ToBoolean(RbDare.IsChecked));
 
             DBHelper.aggiungiVariazione(var);
             listVariazioni = DBHelper.readVariazioni();
             loadVariazioni();
         }
     }
+
+   
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientManager"
         mc:Ignorable="d"
-        Title="Gestione Palestra" Height="629.5" Width="864.375" Loaded="Window_Loaded">
+        Title="Gestione Palestra" Height="629.5" Width="937.375" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="51*"/>
@@ -102,9 +102,14 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Contabilità" VerticalAlignment="Top" Width="54">
+            <TabItem Header="Contabilità" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid ItemsSource="{Binding VariazioneEconomica}" x:Name="dataGridVariazioni" CanUserReorderColumns="False" Margin="0,41,0,-7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="623*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid ItemsSource="{Binding VariazioneEconomica}" x:Name="dataGridVariazioni" CanUserReorderColumns="False" Margin="0,41,0,-7" Grid.ColumnSpan="3">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Data}"  Width="*" IsReadOnly="True" Header="Data"/>
                             <DataGridTextColumn Binding="{Binding DescrizioneDare}" Width="*" IsReadOnly="True" Header="Descrizione Dare"/>
@@ -112,12 +117,23 @@
                             <DataGridTextColumn Binding="{Binding DescrizioneAvere}"  Width="*" IsReadOnly="True" Header="Descrizione Avere"/>
                             <DataGridTextColumn Binding="{Binding ImportoAvere}" Width="*" IsReadOnly="True" Header="Importo Avere"/>
                         </DataGrid.Columns>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DescrizioneDare}" Value="TOTALE DARE">
+                                        <Setter Property="Background" Value="Yellow"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
                     </DataGrid>
-                    <TextBox x:Name="txtVariazione" Margin="195,3,0,0" TextWrapping="Wrap" TextChanged="txtVariazione_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Width="420" Height="25"/>
-                    <DatePicker x:Name="datePickerVariazione" HorizontalAlignment="Left" Height="25" Margin="10,3,0,0" VerticalAlignment="Top" Width="180"/>
-                    <TextBox x:Name="txtImportoVariazione" Height="25" Margin="661,2,0,0" TextWrapping="Wrap" Width="70" TextChanged="txtImportoVariazione_TextChanged" PreviewTextInput="txtImportoVariazione_PreviewTextInput" MaxWidth="70" MaxHeight="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Button x:Name="btnInserisciVariazione" Content="Inserisci" Margin="736,3,0,0" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="114" Click="btnInserisciVariazione_Click"/>
-                    <ToggleButton x:Name = "toggleDareAvere" Content = "D" Margin = "620,4,0,0" HorizontalAlignment = "Left" RenderTransformOrigin="0.889,3.625" VerticalAlignment="Top" Width="36" Height="24" />
+                    <TextBox x:Name="txtVariazione" Margin="45,4,329,542" TextWrapping="Wrap" TextChanged="txtVariazione_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="25"/>
+                    <DatePicker x:Name="datePickerVariazione" HorizontalAlignment="Left" Height="25" Margin="10,4,0,0" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtImportoVariazione" Height="25" Margin="428,4,0,0" TextWrapping="Wrap" Width="70" TextChanged="txtImportoVariazione_TextChanged" PreviewTextInput="txtImportoVariazione_PreviewTextInput" MaxWidth="70" MaxHeight="25" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Button x:Name="btnInserisciVariazione" Content="Inserisci" Margin="503,5,0,0" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="114" Click="btnInserisciVariazione_Click" Grid.Column="2"/>
+                    <RadioButton x:Name="RbDare" Content="DARE" HorizontalAlignment="Left" Height="19" Margin="299,10,0,0" VerticalAlignment="Top" Width="54" IsChecked="True" Grid.Column="2"/>
+                    <RadioButton x:Name="rbAvere" Content="AVERE" HorizontalAlignment="Left" Height="19" Margin="358,10,0,0" VerticalAlignment="Top" Width="65" Grid.Column="2"/>
                 </Grid>
             </TabItem>
         </TabControl>

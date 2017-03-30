@@ -1,9 +1,13 @@
 ﻿using ClientManager.domain;
+using IOEx;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Management;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,7 +25,9 @@ namespace ClientManager
         public static string pathUsers = pathData + "users\\";
         public static string formatDate = "dd/MM/yyyy";
 
-        
+        const string userRoot = "HKEY_CURRENT_USER";
+        const string subkey = "ClientManager";
+        const string keyName = userRoot + "\\SOFTWARE\\" + subkey;
 
         public static SortedList<string, Provincia> getProvince(bool forceRead = false)
         {
@@ -288,5 +294,75 @@ namespace ClientManager
             return DateTime.ParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
         }
 
+        public static void writeRegistryKey(string keyVal,string value)
+        {
+            Registry.SetValue(keyName, keyVal, value, RegistryValueKind.String);
+        }
+
+        public static string readRegistryKey(string keyVal)
+        {
+            string esito = "null";
+            object res = Registry.GetValue(keyName, keyVal, "null");
+            if(res != null)
+            {
+                esito = res.ToString();
+            }
+            return esito;
+        }
+
+        public static string mergeString(string str1,string str2)
+        {
+            string output = "";
+            char[] char1 = str1.ToCharArray();
+            char[] char2 = str2.ToCharArray();
+            if (char1.Length == char2.Length)
+            {
+                for(int i = 0; i < char1.Length; i++)
+                {
+                    output += char1[i].ToString() + char2[i].ToString();
+                }
+            }else if(char1.Length < char2.Length)
+            {
+                int k;
+                for(k = 0; k < char1.Length; k++)
+                {
+                    output += char1[k].ToString() + char2[k].ToString();
+                }
+                output += str2.Substring(k);
+            }else
+            {
+                int k;
+                for (k = 0; k < char2.Length; k++)
+                {
+                    output += char1[k].ToString() + char2[k].ToString();
+                }
+                output += str1.Substring(k);
+            }
+            return output;
+        }
+
+        public static string diskSerial()
+        //Return a hardware identifier
+        {
+            string serial = "";
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMedia");
+
+            int i = 0;
+            foreach (ManagementObject wmi_HD in searcher.Get())
+            {
+                // get the hardware serial no.
+                if (wmi_HD["SerialNumber"] == null)
+                    serial = "None";
+                else
+                    serial = wmi_HD["SerialNumber"].ToString();
+
+                ++i;
+            }
+            return serial;
+        }
+
+
     }
+
+
 }

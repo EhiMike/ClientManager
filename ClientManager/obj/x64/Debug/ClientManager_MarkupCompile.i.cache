@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Lavori\ClientManager\ClientManager\ClientManager\obj\x64\Debug\
+C:\Lavori\ClientManager\ClientManager\obj\x64\Debug\
 ClientManager
 none
 false
 DEBUG;TRACE
-C:\Lavori\ClientManager\ClientManager\ClientManager\App.xaml
-2-1690996900
+C:\Lavori\ClientManager\ClientManager\App.xaml
+31426215548
 
-12-1452742816
-14-314492980
-MainWindow.xaml;WindowUtente.xaml;
+191034518663
+221022128107
+MainWindow.xaml;WindowAbi.xaml;WindowUtente.xaml;
 
 True
 
