@@ -1,4 +1,5 @@
 ﻿using ClientManager.domain;
+using ClientManager.support;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -155,11 +156,11 @@ namespace ClientManager
 
                     if (update)
                     {
-                        DBHelper.modificaCliente(mUtente);
+                        DBSqlLite.modificaCliente(mUtente);
                     }
                     else
                     {
-                        DBHelper.aggiungiCliente(mUtente);
+                        DBSqlLite.aggiungiCliente(mUtente);
                     }
                     
                     this.Close();
@@ -172,7 +173,7 @@ namespace ClientManager
             }
             catch(Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=WindowUtente btnConferma_Click - " + ex.Message);
             }
         }
 
@@ -223,7 +224,7 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=WindowUtente checkAllFilled - " + ex.Message);
             }
             return true;
         }
@@ -251,20 +252,20 @@ namespace ClientManager
                     if (File.Exists(openFileDialog1.FileName))
                     {
                         string fileName = System.IO.Path.GetFileName(openFileDialog1.FileName);
-                        string clientFolder = Helper.pathAppData + mUtente.Identifier;
+                        string clientFolder = Helper.pathData + mUtente.Identifier;
                         if (!Directory.Exists(clientFolder))
                         {
                             Directory.CreateDirectory(clientFolder);
                         }
                         File.Copy(openFileDialog1.FileName, clientFolder + "\\CI.pdf");
-                        lblCartaIdentita.Content = "SI";
+                        lblCIPresente.Content = "SI";
                     }
 
                 }
             }
             catch(Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=WindowUtente btnCaricaCI_Click - " + ex.Message);
             }
         }
 
@@ -291,7 +292,7 @@ namespace ClientManager
                     if (File.Exists(openFileDialog1.FileName))
                     {
                         string fileName = System.IO.Path.GetFileName(openFileDialog1.FileName);
-                        string clientFolder = Helper.pathAppData + mUtente.Identifier;
+                        string clientFolder = Helper.pathData + mUtente.Identifier;
                         if (!Directory.Exists(clientFolder))
                         {
                             Directory.CreateDirectory(clientFolder);
@@ -304,7 +305,7 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=WindowUtente btnCaricaVM_Click " + ex.Message);
             }
         }
     }

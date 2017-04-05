@@ -1,0 +1,4 @@
+05/04/2017 23:16:09 - class=DBSqlLite readVariazioni -Unable to open the database file
+05/04/2017 23:16:11 - class=DBSqlLite readProvince - Unable to open the database file
+05/04/2017 23:16:11 - class=DBSqlLite readClienti ->Unable to open the database file
+05/04/2017 23:16:41 - class=DBSqlLite readVariazioni -Indice oltre i limiti della matrice.

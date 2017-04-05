@@ -111,7 +111,7 @@ namespace ClientManager
                     }
                     catch (Exception ex)
                     {
-                        Helper.Logger("readClienti.readPresenze ->" + ex.Message);
+                        Helper.Logger("class=DBHelper readClienti.readPresenze ->" + ex.Message);
                     }
                     finally
                     {
@@ -125,7 +125,7 @@ namespace ClientManager
             }
             catch(Exception ex)
             {
-                Helper.Logger("readClienti ->"+ ex.Message);
+                Helper.Logger("class=DBHelper readClienti ->"+ ex.Message);
             }
             finally
             {
@@ -370,7 +370,7 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=DBHelper readVariazioni - " + ex.Message);
             }
             finally
             {
@@ -404,7 +404,7 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=DBHelper readProvince - " + ex.Message);
             }
             finally
             {

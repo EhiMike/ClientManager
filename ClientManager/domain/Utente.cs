@@ -250,7 +250,7 @@ namespace ClientManager
 
         public string getPathUser()
         {
-            return Helper.pathAppData + Identifier + "\\";
+            return Helper.pathData + Identifier + "\\";
         }
 
         public string getDocumentPath(string type)

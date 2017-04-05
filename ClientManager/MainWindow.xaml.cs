@@ -1,4 +1,5 @@
 ﻿using ClientManager.domain;
+using ClientManager.support;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -26,20 +27,35 @@ namespace ClientManager
         {
             bool start =  false;
 
-            string testAbi = Helper.readRegistryKey("SN");
-            string testDsk = Helper.readRegistryKey("DSK");
+            //string testAbi = Helper.readRegistryKey("SN");
+            //string testDsk = Helper.readRegistryKey("DSK");
 
-            if (!testAbi.Equals("null") && Helper.diskSerial().Equals(testDsk)){
+            //if (!testAbi.Equals("null") && Helper.diskSerial().Equals(testDsk)){
+            //    start = true;
+            //}else
+            //{
+            //    WindowAbi dialog = new WindowAbi();
+            //    dialog.ShowDialog();
+
+            //    if (dialog.DialogResult.HasValue && dialog.DialogResult.Value)
+            //    {
+            //        start = true;
+            //    }
+            //}
+
+            if(DateTime.Now < Helper.scadenza)
+            {
                 start = true;
+                if((Helper.scadenza - DateTime.Now).TotalDays < 7)
+                {
+                    System.Windows.MessageBox.Show("Il programma scadrà tra meno di una settimana");
+                }else if ((Helper.scadenza - DateTime.Now).TotalDays < 30)
+                {
+                    System.Windows.MessageBox.Show("Il programma scadrà tra meno di un mese");
+                }
             }else
             {
-                WindowAbi dialog = new WindowAbi();
-                dialog.ShowDialog();
-
-                if (dialog.DialogResult.HasValue && dialog.DialogResult.Value)
-                {
-                    start = true;
-                }
+                System.Windows.MessageBox.Show("Programma scaduto");
             }
             
             
@@ -47,10 +63,11 @@ namespace ClientManager
             {
                 InitializeComponent();
 
-                DBHelper.initDBConnection();
-                listVariazioni = DBHelper.readVariazioni();
+                //DBHelper.initDBConnection();
+                listVariazioni = DBSqlLite.readVariazioni();
                 datePickerVariazione.SelectedDate = DateTime.Now;
                 loadVariazioni();
+               
             }
             else
             {
@@ -121,7 +138,7 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=MainWindow riempiDatiUtente - " + ex.Message);
             }
         }
 
@@ -185,7 +202,7 @@ namespace ClientManager
                 }
             }catch(Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=MainWindow trovaUtente - " + ex.Message);
             }
             return trovato;
         }
@@ -198,10 +215,10 @@ namespace ClientManager
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Maximized;
-            DBHelper.readProvince();
+            DBSqlLite.readProvince();
             //listaUtenti = Helper.readUsers();
-            listaUtenti = DBHelper.readClienti();
-
+            listaUtenti = DBSqlLite.readClienti();
+            //DBSqlLite.aggiungiCliente(listaUtenti["1"]);
             reloadUtenti();
             if(cbClient.SelectedItem != null)
             {
@@ -225,7 +242,7 @@ namespace ClientManager
             if(MessageBoxResult.Yes == result)
             {
                 utenteCorrente.Attivo = false;
-                DBHelper.modificaCliente(utenteCorrente);
+                DBSqlLite.modificaCliente(utenteCorrente);
             }
         }
 
@@ -239,7 +256,7 @@ namespace ClientManager
                 utenteCorrente.ListPresenze.Add(pres.Data,pres);
                 btnIngresso.IsEnabled = false;
                 btnUscita.IsEnabled = true;
-                DBHelper.aggiungiPresenza(pres, utenteCorrente.Identifier);
+                DBSqlLite.aggiungiPresenza(pres, utenteCorrente.Identifier);
                 loadPresenzeTabella();
             }
         }
@@ -252,7 +269,7 @@ namespace ClientManager
                 pres.OraUscita = new TimeSpan(DateTime.Now.TimeOfDay.Hours, DateTime.Now.TimeOfDay.Minutes, DateTime.Now.TimeOfDay.Seconds);
                 btnIngresso.IsEnabled = true;
                 btnUscita.IsEnabled = false;
-                DBHelper.modificaPresenza(pres);
+                DBSqlLite.modificaPresenza(pres);
                 loadPresenzeTabella();
             }
         }
@@ -271,7 +288,7 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=MainWindow loadPresenzeTabella - " + ex.Message);
             }
         }
 
@@ -289,7 +306,7 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=MainWindow loadUtentiTabella - " + ex.Message);
             }
         }
 
@@ -318,7 +335,7 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
-                Helper.Logger(ex.Message);
+                Helper.Logger("class=MainWindow loadVariazioni - " + ex.Message);
             }
         }
 
@@ -348,8 +365,8 @@ namespace ClientManager
             double importo = Double.Parse(txtImportoVariazione.Text);
             VariazioneEconomica var = new VariazioneEconomica(datePickerVariazione.SelectedDate.Value,txtVariazione.Text, importo,Convert.ToBoolean(RbDare.IsChecked));
 
-            DBHelper.aggiungiVariazione(var);
-            listVariazioni = DBHelper.readVariazioni();
+            DBSqlLite.aggiungiVariazione(var);
+            listVariazioni = DBSqlLite.readVariazioni();
             loadVariazioni();
         }
     }

@@ -1,15 +1,11 @@
 ﻿using ClientManager.domain;
-using IOEx;
+using ClientManager.support;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Management;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Linq;
 
@@ -29,11 +25,13 @@ namespace ClientManager
         const string subkey = "ClientManager";
         const string keyName = userRoot + "\\SOFTWARE\\" + subkey;
 
+        public static DateTime scadenza = new DateTime(2017, 8,31);
+
         public static SortedList<string, Provincia> getProvince(bool forceRead = false)
         {
             if(province.Count == 0 || forceRead)
             {
-                DBHelper.readProvince();
+                DBSqlLite.readProvince();
                 //province.Clear();
                 //try
                 //{
@@ -91,7 +89,7 @@ namespace ClientManager
                 }
                 catch (Exception ex)
                 {
-                    Logger(ex.Message);
+                    Logger("class=Helper getStati - " + ex.Message);
                 }
             }
 
@@ -115,7 +113,7 @@ namespace ClientManager
             // lines get appended to  test.txt than wiping content and writing the log
 
             System.IO.StreamWriter file = new System.IO.StreamWriter(logPath + "//log.txt", true);
-            file.WriteLine(lines);
+            file.WriteLine(DateTime.Now.ToString() +" - " + lines);
 
             file.Close();
             MessageBox.Show(lines);
@@ -177,7 +175,7 @@ namespace ClientManager
             }
             catch(Exception ex)
             {
-                Logger(ex.Message);
+                Logger("class=Helper saveUsers" + ex.Message);
             }
         }
 
@@ -271,7 +269,7 @@ namespace ClientManager
                         }
                         catch (Exception ex)
                         {
-                            Logger("Errore lettura Utente");
+                            Logger("Helper Errore lettura Utente");
                         }
                     }
                 }
@@ -279,7 +277,7 @@ namespace ClientManager
             }
             catch (Exception ex)
             {
-                Logger(ex.Message);
+                Logger("class=Helper readUsers " + ex.Message);
             }
             return listUsers;
         }

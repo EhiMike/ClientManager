@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientManager"
         mc:Ignorable="d"
-        Title="Gestione Palestra" Height="629.5" Width="937.375" Loaded="Window_Loaded">
+        Title="Gestione Palestra" Height="629.5" Width="937.375" Loaded="Window_Loaded" Icon="pack://siteoforigin:,,,/bin/gym.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="51*"/>
@@ -67,7 +67,7 @@
                     <Label x:Name="lblSessoVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,81,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="3" Grid.Column="5"/>
                     <Label x:Name="lblDataNascitaVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,116,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="3" Grid.Column="5"/>
                     <Label x:Name="lblIndirizzoVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,151,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="3" Grid.Column="5"/>
-                    <Label x:Name="lblEmailVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,186,0,0" VerticalAlignment="Top" Grid.Column="5" Grid.ColumnSpan="2"/>
+                    <Label x:Name="lblEmailVal" Content="(vuoto)" Height="28" Margin="10,186,0,0" VerticalAlignment="Top" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Left"/>
                     <Label x:Name="lblScadAbbVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="10,221,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="3" Grid.Column="5"/>
                     <Label x:Name="lblCognomeVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="140,46,0,0" VerticalAlignment="Top" Width="259" Grid.Column="8"/>
                     <Label x:Name="lblCFVal" Content="(vuoto)" HorizontalAlignment="Left" Height="30" Margin="140,81,0,0" VerticalAlignment="Top" Width="259" Grid.Column="8"/>
@@ -105,11 +105,14 @@
             <TabItem Header="Contabilità" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="22*"/>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="107*"/>
                         <ColumnDefinition Width="150*"/>
                         <ColumnDefinition Width="623*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid ItemsSource="{Binding VariazioneEconomica}" x:Name="dataGridVariazioni" CanUserReorderColumns="False" Margin="0,41,0,-7" Grid.ColumnSpan="3">
+                    <DataGrid ItemsSource="{Binding VariazioneEconomica}" x:Name="dataGridVariazioni" CanUserReorderColumns="False" Margin="0,41,0,-7" Grid.ColumnSpan="6">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Data}"  Width="*" IsReadOnly="True" Header="Data"/>
                             <DataGridTextColumn Binding="{Binding DescrizioneDare}" Width="*" IsReadOnly="True" Header="Descrizione Dare"/>
@@ -128,12 +131,12 @@
                             </Style>
                         </DataGrid.RowStyle>
                     </DataGrid>
-                    <TextBox x:Name="txtVariazione" Margin="45,4,329,542" TextWrapping="Wrap" TextChanged="txtVariazione_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="25"/>
-                    <DatePicker x:Name="datePickerVariazione" HorizontalAlignment="Left" Height="25" Margin="10,4,0,0" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="txtImportoVariazione" Height="25" Margin="428,4,0,0" TextWrapping="Wrap" Width="70" TextChanged="txtImportoVariazione_TextChanged" PreviewTextInput="txtImportoVariazione_PreviewTextInput" MaxWidth="70" MaxHeight="25" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2"/>
-                    <Button x:Name="btnInserisciVariazione" Content="Inserisci" Margin="503,5,0,0" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="114" Click="btnInserisciVariazione_Click" Grid.Column="2"/>
-                    <RadioButton x:Name="RbDare" Content="DARE" HorizontalAlignment="Left" Height="19" Margin="299,10,0,0" VerticalAlignment="Top" Width="54" IsChecked="True" Grid.Column="2"/>
-                    <RadioButton x:Name="rbAvere" Content="AVERE" HorizontalAlignment="Left" Height="19" Margin="358,10,0,0" VerticalAlignment="Top" Width="65" Grid.Column="2"/>
+                    <TextBox x:Name="txtVariazione" Margin="45,4,329,0" TextWrapping="Wrap" TextChanged="txtVariazione_TextChanged" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="25"/>
+                    <DatePicker x:Name="datePickerVariazione" HorizontalAlignment="Left" Height="25" Margin="8,4,0,0" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="4" Grid.Column="1"/>
+                    <TextBox x:Name="txtImportoVariazione" Height="25" Margin="0,4,123,0" TextWrapping="Wrap" TextChanged="txtImportoVariazione_TextChanged" PreviewTextInput="txtImportoVariazione_PreviewTextInput" MaxWidth="70" MaxHeight="25" VerticalAlignment="Top" Grid.Column="5" HorizontalContentAlignment="Stretch" HorizontalAlignment="Right" Width="75"/>
+                    <Button x:Name="btnInserisciVariazione" Content="Inserisci" Margin="0,4,0,0" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" Click="btnInserisciVariazione_Click" Grid.Column="5" MaxWidth="120" HorizontalAlignment="Right" Width="118"/>
+                    <RadioButton x:Name="RbDare" Content="DARE" Height="19" Margin="0,10,270,0" VerticalAlignment="Top" IsChecked="True" Grid.Column="5" HorizontalContentAlignment="Stretch" MaxWidth="54" HorizontalAlignment="Right"/>
+                    <RadioButton x:Name="rbAvere" Content="AVERE" Height="19" Margin="0,9,198,0" VerticalAlignment="Top" Grid.Column="5" HorizontalContentAlignment="Stretch" MaxWidth="54" HorizontalAlignment="Right"/>
                 </Grid>
             </TabItem>
         </TabControl>

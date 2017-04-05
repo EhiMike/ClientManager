@@ -37,3 +37,29 @@ C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManag
 C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\MySql.Data.Entity.EF6.xml
 C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\bin\Release\MySql.Web.xml
 C:\Users\Michael\documents\visual studio 2015\Projects\ClientManager\ClientManager\obj\Release\ClientManager.csproj.ClientManager.exe.config
+C:\Lavori\ClientManager\ClientManager\bin\Release\ClientManager.exe.config
+C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager.pdb
+C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager.csproj.ClientManager.exe.config
+C:\Lavori\ClientManager\ClientManager\obj\Release\MainWindow.g.cs
+C:\Lavori\ClientManager\ClientManager\obj\Release\WindowAbi.g.cs
+C:\Lavori\ClientManager\ClientManager\obj\Release\WindowUtente.g.cs
+C:\Lavori\ClientManager\ClientManager\obj\Release\App.g.cs
+C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager_MarkupCompile.cache
+C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager_MarkupCompile.lref
+C:\Lavori\ClientManager\ClientManager\bin\Release\ClientManager.exe
+C:\Lavori\ClientManager\ClientManager\bin\Release\ClientManager.pdb
+C:\Lavori\ClientManager\ClientManager\bin\Release\MySql.Data.dll
+C:\Lavori\ClientManager\ClientManager\bin\Release\MySql.Data.Entity.dll
+C:\Lavori\ClientManager\ClientManager\bin\Release\MySql.Web.dll
+C:\Lavori\ClientManager\ClientManager\bin\Release\System.Data.SQLite.dll
+C:\Lavori\ClientManager\ClientManager\bin\Release\MySql.Data.xml
+C:\Lavori\ClientManager\ClientManager\bin\Release\MySql.Web.xml
+C:\Lavori\ClientManager\ClientManager\bin\Release\System.Data.SQLite.xml
+C:\Lavori\ClientManager\ClientManager\obj\Release\MainWindow.baml
+C:\Lavori\ClientManager\ClientManager\obj\Release\WindowAbi.baml
+C:\Lavori\ClientManager\ClientManager\obj\Release\WindowUtente.baml
+C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager.g.resources
+C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager.Properties.Resources.resources
+C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager.csproj.GenerateResource.Cache
+C:\Lavori\ClientManager\ClientManager\bin\Release\bin\gym.ico
