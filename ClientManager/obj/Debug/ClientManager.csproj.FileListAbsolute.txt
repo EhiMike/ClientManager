@@ -81,3 +81,30 @@ C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.exe
 C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.pdb
 C:\Lavori\ClientManager\ClientManager\bin\Debug\bin\gym.ico
 C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.csprojResolveAssemblyReference.cache
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\ClientManager.exe.config
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\ClientManager.exe
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\ClientManager.pdb
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\bin\gym.ico
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\ClientManager.exe
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\ClientManager.pdb
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\EntityFramework.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\MySql.Data.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\MySql.Web.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\System.Data.SQLite.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\EntityFramework.xml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Debug\System.Data.SQLite.xml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\ClientManager.csprojResolveAssemblyReference.cache
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\MainWindow.g.cs
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\WindowAbi.g.cs
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\WindowUtente.g.cs
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\App.g.cs
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\ClientManager_MarkupCompile.cache
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\ClientManager_MarkupCompile.lref
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\MainWindow.baml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\WindowAbi.baml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\WindowUtente.baml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\ClientManager.g.resources
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\ClientManager.Properties.Resources.resources
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\ClientManager.csproj.GenerateResource.Cache

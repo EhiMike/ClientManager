@@ -1,3 +1,13 @@
 05/04/2017 23:04:02 - class= Indice oltre i limiti della matrice.
 05/04/2017 23:04:42 - GetSQLiteTypeIndice oltre i limiti della matrice.
 05/04/2017 23:06:10 - System.Data.SQLite.SQLiteType GetSQLiteType(Int32) GetSQLiteType Indice oltre i limiti della matrice.
+07/04/2017 18:01:51 - class=DBSqlLite readVariazioni -Unable to open the database file
+07/04/2017 18:01:56 - class=DBSqlLite readProvince - Unable to open the database file
+07/04/2017 18:01:58 - class=DBSqlLite readClienti ->Unable to open the database file
+07/04/2017 18:02:33 - class=DBSqlLite readVariazioni -Unable to open the database file
+07/04/2017 18:02:36 - class=DBSqlLite readProvince - Unable to open the database file
+07/04/2017 18:02:37 - class=DBSqlLite readClienti ->Unable to open the database file
+07/04/2017 18:03:22 - class=WindowUtente checkAllFilled - L'oggetto nullable deve avere un valore.
+07/04/2017 18:03:26 - class=WindowUtente btnConferma_Click - L'oggetto nullable deve avere un valore.
+07/04/2017 18:04:05 - class=Helper saveUsersIl valore non può essere null.
+Nome parametro: value

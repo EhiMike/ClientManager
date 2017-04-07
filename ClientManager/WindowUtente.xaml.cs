@@ -28,6 +28,8 @@ namespace ClientManager
         private SortedList<string, Provincia> provinciaBinding = new SortedList<string, Provincia>();
         private Boolean update = false;
 
+        public bool resultOK = false;
+
         public WindowUtente(Utente utente = null)
         {
             InitializeComponent();
@@ -107,6 +109,7 @@ namespace ClientManager
 
         private void btnAnnulla_Click(object sender, RoutedEventArgs e)
         {
+            resultOK = false;
             this.Close();
         }
 
@@ -162,7 +165,7 @@ namespace ClientManager
                     {
                         DBSqlLite.aggiungiCliente(mUtente);
                     }
-                    
+                    resultOK = true;
                     this.Close();
                 }else
                 {
@@ -218,6 +221,10 @@ namespace ClientManager
                     return false;
                 }
                 if(!rbSessoF.IsChecked.Value && !rbSessoM.IsChecked.Value)
+                {
+                    return false;
+                }
+                if (datePickerNascita.SelectedDate == null || datePickerAbb.SelectedDate == null || datePickerVM.SelectedDate == null)
                 {
                     return false;
                 }

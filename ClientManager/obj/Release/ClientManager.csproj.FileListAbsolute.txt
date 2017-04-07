@@ -63,3 +63,30 @@ C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager.g.resources
 C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager.Properties.Resources.resources
 C:\Lavori\ClientManager\ClientManager\obj\Release\ClientManager.csproj.GenerateResource.Cache
 C:\Lavori\ClientManager\ClientManager\bin\Release\bin\gym.ico
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\ClientManager.exe.config
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\ClientManager.exe
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\ClientManager.pdb
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\ClientManager.csprojResolveAssemblyReference.cache
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\MainWindow.g.cs
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\WindowAbi.g.cs
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\WindowUtente.g.cs
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\App.g.cs
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\ClientManager_MarkupCompile.cache
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\ClientManager_MarkupCompile.lref
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\bin\gym.ico
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\ClientManager.exe
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\ClientManager.pdb
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\EntityFramework.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\MySql.Data.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\MySql.Web.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\System.Data.SQLite.dll
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\EntityFramework.xml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\bin\Release\System.Data.SQLite.xml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\MainWindow.baml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\WindowAbi.baml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\WindowUtente.baml
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\ClientManager.g.resources
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\ClientManager.Properties.Resources.resources
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Release\ClientManager.csproj.GenerateResource.Cache

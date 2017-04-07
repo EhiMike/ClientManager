@@ -157,8 +157,13 @@ namespace ClientManager
             {
                 WindowUtente winUtente = new WindowUtente(utenteCorrente);
                 winUtente.ShowDialog();
-                Helper.saveUsers(listaUtenti);
-                reloadUtenti();
+                if (winUtente.resultOK)
+                {
+                    Helper.saveUsers(listaUtenti);
+                    reloadUtenti();
+                }
+                
+                
             }
         }
 
@@ -368,6 +373,15 @@ namespace ClientManager
             DBSqlLite.aggiungiVariazione(var);
             listVariazioni = DBSqlLite.readVariazioni();
             loadVariazioni();
+        }
+
+        private void dataGridVariazioni_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            VariazioneEconomica varToDelete = (VariazioneEconomica)dataGridVariazioni.SelectedItem;
+            if(varToDelete != null)
+            {
+                System.Windows.MessageBox.Show("Eliminare riga: " + varToDelete.Data + "," + (varToDelete.isDare() ? varToDelete.DescrizioneDare + "," + varToDelete.ImportoDare : varToDelete.DescrizioneAvere + "," + varToDelete.ImportoAvere));
+            }
         }
     }
 
