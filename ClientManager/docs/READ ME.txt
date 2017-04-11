@@ -1,0 +1,13 @@
+TODO:
+- versione portable e fissa
+- modifica ed elimina VariazioneEconomica -> P - F
+- selezione intervallo temporale Variazioni oppure per anno -> P - F
+- elimina Utente -> P - F
+- checkbox Utente Attivo -> P - F
+- elimina o modifica Ingresso/Uscita -> P - F
+- file giornaliero di backup su testo delle operazioni su db fatte (insert/update/delete) -> F
+- abilitazione  -> F
+
+
+7/04/2017
+Installazione palestra Cartigliano
