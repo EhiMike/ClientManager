@@ -1,4 +1,5 @@
 TODO:
+- disposizione a griglia con colonne e righe
 - versione portable e fissa
 - modifica ed elimina VariazioneEconomica -> P - F
 - selezione intervallo temporale Variazioni oppure per anno -> P - F
@@ -7,6 +8,7 @@ TODO:
 - elimina o modifica Ingresso/Uscita -> P - F
 - file giornaliero di backup su testo delle operazioni su db fatte (insert/update/delete) -> F
 - abilitazione  -> F
+- cronologia pagamenti utente (pagamento,importo,data,numero ricevuta)-> P - F
 
 
 7/04/2017
