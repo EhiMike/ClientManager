@@ -23,6 +23,8 @@ namespace ClientManager
         private SortedList<string,Utente> listaUtenti;
         private List<VariazioneEconomica> listVariazioni;
 
+        private int showClienti = 3; // 3 -> tutti,1 -> attivi,2 -> non attivi,
+
         public MainWindow()
         {
             bool start =  false;
@@ -67,6 +69,7 @@ namespace ClientManager
                 listVariazioni = DBSqlLite.readVariazioni();
                 datePickerVariazione.SelectedDate = DateTime.Now;
                 loadVariazioni();
+
                
             }
             else
@@ -80,7 +83,12 @@ namespace ClientManager
             cbClient.Items.Clear();
             foreach(Utente user in listaUtenti.Values)
             {
-                cbClient.Items.Add(user.Cognome + " " + user.Nome);
+                if(showClienti == 3 || (showClienti == 1 && user.Attivo) || (showClienti == 2 && !user.Attivo))
+                {
+                    cbClient.Items.Add(user.Cognome + " " + user.Nome);
+                } 
+
+                
             }
             if(cbClient.Items.Count > 0)
             {
@@ -112,6 +120,7 @@ namespace ClientManager
 
                     btnCI.IsEnabled = File.Exists(utenteCorrente.getDocumentPath("CI"));
                     btnVisita.IsEnabled = File.Exists(utenteCorrente.getDocumentPath("VM"));
+                    checkAttivo.IsChecked = utenteCorrente.Attivo;
                     if(utenteCorrente.ListPresenze.Count > 0)
                     {
                         Presenza pres = utenteCorrente.ListPresenze[utenteCorrente.getLastKey()];
@@ -243,11 +252,15 @@ namespace ClientManager
 
         private void btnElimina_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = System.Windows.MessageBox.Show("Eliminando il cliente verranno perse tutte le sue informazioni e la cronologia.Eliminare?", "Attezione", MessageBoxButton.YesNo);
-            if(MessageBoxResult.Yes == result)
+            if (utenteCorrente != null)
             {
-                utenteCorrente.Attivo = false;
-                DBSqlLite.modificaCliente(utenteCorrente);
+                MessageBoxResult result = System.Windows.MessageBox.Show("Eliminando il cliente verranno perse tutte le sue informazioni e la cronologia.Eliminare?", "Attezione", MessageBoxButton.YesNo);
+                if (MessageBoxResult.Yes == result)
+                {
+                    utenteCorrente.Attivo = false;
+                    DBSqlLite.modificaCliente(utenteCorrente);
+                    reloadUtenti();
+                }
             }
         }
 
@@ -382,6 +395,35 @@ namespace ClientManager
             {
                 System.Windows.MessageBox.Show("Eliminare riga: " + varToDelete.Data + "," + (varToDelete.isDare() ? varToDelete.DescrizioneDare + "," + varToDelete.ImportoDare : varToDelete.DescrizioneAvere + "," + varToDelete.ImportoAvere));
             }
+        }
+
+        private void checkAttivo_CheckedChanged(object sender, RoutedEventArgs e)
+        {
+            if(utenteCorrente != null)
+            {
+                utenteCorrente.Attivo = checkAttivo.IsChecked.Value;
+                DBSqlLite.modificaCliente(utenteCorrente);
+                reloadUtenti();
+            }
+        }
+
+        private void comboStato_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void comboStato_DropDownClosed(object sender, EventArgs e)
+        {
+            showClienti = 0;
+            if (((System.Windows.Controls.CheckBox)comboStato.Items[0]).IsChecked.Value)
+            {
+                showClienti += 1;
+            }
+            if (((System.Windows.Controls.CheckBox)comboStato.Items[1]).IsChecked.Value)
+            {
+                showClienti += 2;
+            }
+            reloadUtenti();
         }
     }
 

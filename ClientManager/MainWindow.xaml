@@ -87,7 +87,12 @@
                     </TabControl>
                     <Button x:Name="btnNuovo" Content="Nuovo" Grid.Column="4" Height="30" Margin="5,0" ToolTip="Creare nuovo cliente" Click="btnNuovo_Click"/>
                     <Button x:Name="btnModifica" Content="Modifica" Grid.Column="5" Height="30" Margin="5,0" ToolTip="Modifica dati cliente" Click="btnModifica_Click"/>
-                    <Button x:Name="btnElimina" Content="Elimina" Grid.Column="6" Height="30" Margin="5,0" ToolTip="Elimina cliente" Click="btnElimina_Click" IsEnabled="False"/>
+                    <Button x:Name="btnElimina" Content="Elimina" Grid.Column="6" Height="30" Margin="5,0" ToolTip="Elimina cliente" Click="btnElimina_Click"/>
+                    <CheckBox x:Name="checkAttivo" Content="Attivo" Grid.Column="3" Height="30" Margin="5.25,5,9.75,5" Grid.Row="7" Padding="10,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Checked="checkAttivo_CheckedChanged" Unchecked="checkAttivo_CheckedChanged"/>
+                    <ComboBox x:Name="comboStato" Grid.Column="3" Margin="5" SelectionChanged="comboStato_SelectionChanged" DropDownClosed="comboStato_DropDownClosed">
+                        <CheckBox Content="ATTIVI"/>
+                        <CheckBox Content="NON ATTIVI"/>
+                    </ComboBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Riepilogo">

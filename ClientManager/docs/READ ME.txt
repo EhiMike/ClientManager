@@ -3,12 +3,14 @@ TODO:
 - versione portable e fissa
 - modifica ed elimina VariazioneEconomica -> P - F
 - selezione intervallo temporale Variazioni oppure per anno -> P - F
-- elimina Utente -> P - F
-- checkbox Utente Attivo -> P - F
+
 - elimina o modifica Ingresso/Uscita -> P - F
 - file giornaliero di backup su testo delle operazioni su db fatte (insert/update/delete) -> F
 - abilitazione  -> F
-- 
+
+12/4/2017
+OK - elimina Utente -> P - F
+OK - checkbox Utente Attivo -> P - F
 
 11/4/2017
 OK - disposizione a griglia con colonne e righe P - F
