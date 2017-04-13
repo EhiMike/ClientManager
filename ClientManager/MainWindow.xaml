@@ -67,22 +67,28 @@
                     <TabControl x:Name="tabControlClient" Grid.ColumnSpan="10" Margin="0" Grid.Row="8">
                         <TabItem Header="Presenze">
                             <Grid Background="#FFE5E5E5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="108*"/>
-                                    <ColumnDefinition Width="77*"/>
+                                    <ColumnDefinition Width="118"/>
+                                    <ColumnDefinition Width="118"/>
                                     <ColumnDefinition Width="78*"/>
-                                    <ColumnDefinition Width="235*"/>
                                 </Grid.ColumnDefinitions>
-                                <DataGrid ItemsSource="{Binding Presenza}" x:Name="dataGrid" Margin="10,45,10,10" CanUserReorderColumns="False" Grid.ColumnSpan="4" CanUserSortColumns="False">
+                                <DataGrid ItemsSource="{Binding Presenza}" x:Name="dataGrid" Margin="5" CanUserReorderColumns="False" CanUserSortColumns="False" Grid.ColumnSpan="3" Grid.Row="1">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Data" IsReadOnly="True" CanUserSort="True" Width="*" Binding="{Binding Path=Data, StringFormat=\{0:dd/MM/yyyy\}}"/>
                                         <DataGridTextColumn Header="Ora In" IsReadOnly="True" Width="*" Binding="{Binding Path=OraIngresso}"/>
                                         <DataGridTextColumn Header="Ora Out" IsReadOnly="True" Width="*" Binding="{Binding Path=OraUscita}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                <Button x:Name="btnIngresso" Content="Ingresso" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="118" Click="btnIngresso_Click"/>
-                                <Button x:Name="btnUscita" Content="Uscita" HorizontalAlignment="Left" Height="30" Margin="133,10,0,0" VerticalAlignment="Top" Width="118" Grid.ColumnSpan="2" Click="btnUscita_Click"/>
+                                <Button x:Name="btnIngresso" Content="Ingresso" Height="30" Margin="5" Click="btnIngresso_Click"/>
+                                <Button x:Name="btnUscita" Content="Uscita" Height="30" Margin="5" Click="btnUscita_Click" Grid.Column="1"/>
                             </Grid>
+                        </TabItem>
+                        <TabItem Header="Storico" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
+                            <Grid Background="#FFE5E5E5"/>
                         </TabItem>
                     </TabControl>
                     <Button x:Name="btnNuovo" Content="Nuovo" Grid.Column="4" Height="30" Margin="5,0" ToolTip="Creare nuovo cliente" Click="btnNuovo_Click"/>

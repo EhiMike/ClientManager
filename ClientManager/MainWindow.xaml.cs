@@ -407,10 +407,7 @@ namespace ClientManager
             }
         }
 
-        private void comboStato_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
+      
 
         private void comboStato_DropDownClosed(object sender, EventArgs e)
         {

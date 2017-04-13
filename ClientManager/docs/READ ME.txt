@@ -3,7 +3,13 @@ TODO:
 - versione portable e fissa
 - modifica ed elimina VariazioneEconomica -> P - F
 - selezione intervallo temporale Variazioni oppure per anno -> P - F
-
+- per ogni iscritto avere uno storico con:
+	* pagamento
+	* importo
+	* data
+	* n fattura
+- fare tab storico con pulsante aggiungi/modifica/elimina pagamento che aggiunge il pagamento come variazione economica e associa il cliente
+- pulsante modifica che abilita l'editabilità delle celle della grid
 - elimina o modifica Ingresso/Uscita -> P - F
 - file giornaliero di backup su testo delle operazioni su db fatte (insert/update/delete) -> F
 - abilitazione  -> F
