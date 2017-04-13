@@ -296,11 +296,11 @@ namespace ClientManager
         {
             try
             {
-                dataGrid.Items.Clear();
+                gridPresenze.Items.Clear();
               
                 foreach (Presenza pres in utenteCorrente.ListPresenze.Values)
                 {
-                    dataGrid.Items.Add(pres);
+                    gridPresenze.Items.Add(pres);
                 }
                 
             }
@@ -421,6 +421,15 @@ namespace ClientManager
                 showClienti += 2;
             }
             reloadUtenti();
+        }
+
+        private void btnModificaPresenza_Click(object sender, RoutedEventArgs e)
+        {
+            if(utenteCorrente != null && gridPresenze.SelectedItem != null)
+            {
+                Presenza pres = (Presenza)gridPresenze.SelectedItem;
+                windowEdit
+            }
         }
     }
 

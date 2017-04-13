@@ -74,9 +74,10 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="118"/>
                                     <ColumnDefinition Width="118"/>
-                                    <ColumnDefinition Width="78*"/>
+                                    <ColumnDefinition Width="118"/>
+                                    <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <DataGrid ItemsSource="{Binding Presenza}" x:Name="dataGrid" Margin="5" CanUserReorderColumns="False" CanUserSortColumns="False" Grid.ColumnSpan="3" Grid.Row="1">
+                                <DataGrid ItemsSource="{Binding Presenza}" x:Name="gridPresenze" Margin="5" CanUserReorderColumns="False" CanUserSortColumns="False" Grid.Row="1" Grid.ColumnSpan="4">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Data" IsReadOnly="True" CanUserSort="True" Width="*" Binding="{Binding Path=Data, StringFormat=\{0:dd/MM/yyyy\}}"/>
                                         <DataGridTextColumn Header="Ora In" IsReadOnly="True" Width="*" Binding="{Binding Path=OraIngresso}"/>
@@ -85,6 +86,7 @@
                                 </DataGrid>
                                 <Button x:Name="btnIngresso" Content="Ingresso" Height="30" Margin="5" Click="btnIngresso_Click"/>
                                 <Button x:Name="btnUscita" Content="Uscita" Height="30" Margin="5" Click="btnUscita_Click" Grid.Column="1"/>
+                                <Button x:Name="btnModificaPresenza" Content="Modifica" Height="30" Margin="5" Click="btnModificaPresenza_Click" Grid.Column="2"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Storico" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
@@ -95,7 +97,7 @@
                     <Button x:Name="btnModifica" Content="Modifica" Grid.Column="5" Height="30" Margin="5,0" ToolTip="Modifica dati cliente" Click="btnModifica_Click"/>
                     <Button x:Name="btnElimina" Content="Elimina" Grid.Column="6" Height="30" Margin="5,0" ToolTip="Elimina cliente" Click="btnElimina_Click"/>
                     <CheckBox x:Name="checkAttivo" Content="Attivo" Grid.Column="3" Height="30" Margin="5.25,5,9.75,5" Grid.Row="7" Padding="10,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Checked="checkAttivo_CheckedChanged" Unchecked="checkAttivo_CheckedChanged"/>
-                    <ComboBox x:Name="comboStato" Grid.Column="3" Margin="5" SelectionChanged="comboStato_SelectionChanged" DropDownClosed="comboStato_DropDownClosed">
+                    <ComboBox x:Name="comboStato" Grid.Column="3" Margin="5" DropDownClosed="comboStato_DropDownClosed">
                         <CheckBox Content="ATTIVI"/>
                         <CheckBox Content="NON ATTIVI"/>
                     </ComboBox>
