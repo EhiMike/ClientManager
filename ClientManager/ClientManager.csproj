@@ -148,12 +148,16 @@
     <Compile Include="domain\Abbonamento.cs" />
     <Compile Include="domain\Presenza.cs" />
     <Compile Include="domain\Provincia.cs" />
+    <Compile Include="domain\Storico.cs" />
     <Compile Include="domain\VariazioneEconomica.cs" />
     <Compile Include="support\CoreGenerator.cs" />
     <Compile Include="support\DBHelper.cs" />
     <Compile Include="support\DBSqlLite.cs" />
     <Compile Include="support\Helper.cs" />
     <Compile Include="domain\Utente.cs" />
+    <Compile Include="WindowEdit.xaml.cs">
+      <DependentUpon>WindowEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowAbi.xaml.cs">
       <DependentUpon>WindowAbi.xaml</DependentUpon>
     </Compile>
@@ -172,6 +176,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowAbi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

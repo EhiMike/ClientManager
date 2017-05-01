@@ -97,7 +97,9 @@ namespace ClientManager.support
                             pres.OraUscita = TimeSpan.Parse(rdr["oraOut"].ToString());
                             pres.IdPresenza = Convert.ToInt32(rdr["idPres"].ToString());
                             user.ListPresenze.Add(pres.Data, pres);
+                           
                         }
+                        
                     }
                     catch (Exception ex)
                     {
@@ -209,6 +211,29 @@ namespace ClientManager.support
             }
         }
 
+        public static void eliminaPresenza(Presenza pres)
+        {
+            try
+            {
+                m_dbConnection.Open();
+
+                string sql = " DELETE FROM presenze "
+                + " where idpresenze = " + pres.IdPresenza;
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: {0}", ex.ToString());
+
+            }
+            finally
+            {
+                m_dbConnection.Close();
+            }
+        }
+
 
 
         public static void aggiungiVariazione(VariazioneEconomica var)
@@ -236,6 +261,66 @@ namespace ClientManager.support
             }
         }
 
+        public static void modificaVariazione(VariazioneEconomica variazione)
+        {
+            try
+            {
+                m_dbConnection.Open();
+
+                string descr, importo;
+                if (variazione.isDare())
+                {
+                    descr = variazione.DescrizioneDare;
+                    importo = variazione.ImportoDare.ToString();
+                }else
+                {
+                    descr = variazione.DescrizioneAvere;
+                    importo = variazione.ImportoAvere.ToString();
+                }
+
+                string sql = " UPDATE variazioni SET data = '" + variazione.Data.ToString("dd-MM-yyyy") +
+                    "',descr = '" + descr + "',importo = '" + importo + "',dare = '"+variazione.isDare() + "'"
+                    + " where idvariazioni = " + variazione.IdVariazione;
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: {0}", ex.ToString());
+
+            }
+            finally
+            {
+                m_dbConnection.Close();
+            }
+        }
+
+        public static void eliminaVariazione(VariazioneEconomica variazione)
+        {
+            try
+            {
+                m_dbConnection.Open();
+
+               
+
+                string sql = " DELETE FROM variazioni "
+                    + " where idvariazioni = " + variazione.IdVariazione;
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: {0}", ex.ToString());
+
+            }
+            finally
+            {
+                m_dbConnection.Close();
+            }
+        }
+
         public static List<VariazioneEconomica> readVariazioni()
         {
             List<VariazioneEconomica> listVariazioni = new List<VariazioneEconomica>();
@@ -244,13 +329,14 @@ namespace ClientManager.support
 
                 m_dbConnection.Open();
 
-                string sql = "SELECT data,descr,importo,dare FROM variazioni";
+                string sql = "SELECT idvariazioni,data,descr,importo,dare FROM variazioni";
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 SQLiteDataReader rdr = command.ExecuteReader();
 
                 while (rdr.Read())
                 {
                     VariazioneEconomica var = new VariazioneEconomica(Convert.ToDateTime(rdr["data"].ToString()), rdr["descr"].ToString(), Convert.ToDouble(rdr["importo"].ToString()), Convert.ToBoolean(rdr["dare"].ToString()));
+                    var.IdVariazione = Convert.ToInt32(rdr["idvariazioni"]);
                     listVariazioni.Add(var);
                 }
             }
@@ -265,6 +351,93 @@ namespace ClientManager.support
                     m_dbConnection.Close();
             }
             return listVariazioni;
+        }
+
+        public static void aggiungiStorico(Storico storico)
+        {
+            try
+            {
+                m_dbConnection.Open();
+
+                string sql = "insert into storico (idcliente,data,descr,fattura,importo) " +
+                    "VALUES('" + storico.Idcliente + "','" + storico.Data.ToString("dd-MM-yyyy") + "','" +
+                  storico.Descr + "','" + storico.Fattura + "','" + storico.Importo.ToString() + "')";
+
+
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: {0}", ex.ToString());
+
+            }
+            finally
+            {
+                m_dbConnection.Close();
+            }
+        }
+
+        public static void modificaStorico(Storico storico)
+        {
+            try
+            {
+                m_dbConnection.Open();
+
+                string sql = " UPDATE storico SET data = '" + storico.Data.ToString("dd-MM-yyyy") +
+                    "',descr = '" + storico.Descr + "',importo = '" + storico.Importo + "',fattura = '" + storico.Fattura + "'" 
+                    + ",idcliente = '" + storico.Idcliente + "'"
+                    + " where idabbonamento = " + storico.Idstorico;
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: {0}", ex.ToString());
+
+            }
+            finally
+            {
+                m_dbConnection.Close();
+            }
+        }
+
+        public static SortedList<DateTime,Storico> readStorico(string idcliente)
+        {
+            SortedList<DateTime, Storico> listStorico = new SortedList<DateTime, Storico>();
+            try
+            {
+
+                m_dbConnection.Open();
+
+                string sql = "SELECT idabbonamento,idcliente,data,descr,importo,fattura FROM storico WHERE idcliente ='"+ idcliente + "'";
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                SQLiteDataReader rdr = command.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Storico stor = new Storico();
+                    stor.Idstorico = Convert.ToInt32(rdr["idabbonamento"]);
+                    stor.Idcliente = rdr["idcliente"].ToString();
+                    stor.Data = Convert.ToDateTime(rdr["data"]);
+                    stor.Descr = rdr["descr"].ToString();
+                    stor.Importo = Convert.ToDouble(rdr["importo"]);
+                    stor.Fattura = rdr["fattura"].ToString();
+                    listStorico.Add(stor.Data,stor);
+                }
+            }
+            catch (Exception ex)
+            {
+                MethodBase site = ex.TargetSite;
+                string methodName = site == null ? null : site.Name;
+                Helper.Logger("class=DBSqlLite readStorico -" + ex.Message);
+            }
+            finally
+            {
+                m_dbConnection.Close();
+            }
+            return listStorico;
         }
 
         public static void readProvince()

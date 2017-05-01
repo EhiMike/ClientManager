@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientManager.domain
 {
-    class Presenza
+   public class Presenza
     {
         private int idPresenza = -1;
         private DateTime data;

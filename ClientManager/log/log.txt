@@ -11,3 +11,11 @@
 07/04/2017 18:03:26 - class=WindowUtente btnConferma_Click - L'oggetto nullable deve avere un valore.
 07/04/2017 18:04:05 - class=Helper saveUsersIl valore non può essere null.
 Nome parametro: value
+01/05/2017 16:17:42 - class=DBSqlLite readStorico -Operazione non valida a causa dello stato corrente dell'oggetto.
+01/05/2017 16:18:13 - class=DBSqlLite readClienti.readPresenze ->Connection was closed, statement was terminated
+01/05/2017 16:18:14 - class=DBSqlLite readClienti ->Connection was closed, statement was terminated
+01/05/2017 16:18:44 - class=DBSqlLite readStorico -Operazione non valida a causa dello stato corrente dell'oggetto.
+01/05/2017 16:18:48 - class=DBSqlLite readClienti.readPresenze ->Connection was closed, statement was terminated
+01/05/2017 16:18:51 - class=DBSqlLite readClienti ->Connection was closed, statement was terminated
+01/05/2017 16:20:43 - class=DBSqlLite readStorico -SQLite error
+no such column: icliente

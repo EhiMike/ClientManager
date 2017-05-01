@@ -16,6 +16,7 @@ namespace ClientManager
         private Boolean attivo = true;
         private Abbonamento abbonamento;
         private SortedList<DateTime, Presenza> listPresenze = new SortedList<DateTime, Presenza>();
+        private SortedList<DateTime, Storico> listStorico = new SortedList<DateTime, Storico>();
 
         public Utente(string id = null)
         {
@@ -246,6 +247,19 @@ namespace ClientManager
                 return listPresenze;
             }
 
+        }
+
+        public SortedList<DateTime, Storico> ListStorico
+        {
+            get
+            {
+                return listStorico;
+            }
+
+            set
+            {
+                listStorico = value;
+            }
         }
 
         public string getPathUser()

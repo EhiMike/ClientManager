@@ -142,6 +142,7 @@ namespace ClientManager
                         btnUscita.IsEnabled = false;
                     }
                     loadPresenzeTabella();
+                    loadStoricoTabella();
                 }
 
             }
@@ -232,6 +233,10 @@ namespace ClientManager
             DBSqlLite.readProvince();
             //listaUtenti = Helper.readUsers();
             listaUtenti = DBSqlLite.readClienti();
+            foreach(Utente user in listaUtenti.Values)
+            {
+                user.ListStorico = DBSqlLite.readStorico(user.Identifier);
+            }
             //DBSqlLite.aggiungiCliente(listaUtenti["1"]);
             reloadUtenti();
             if(cbClient.SelectedItem != null)
@@ -303,6 +308,26 @@ namespace ClientManager
                     gridPresenze.Items.Add(pres);
                 }
                 
+            }
+            catch (Exception ex)
+            {
+                Helper.Logger("class=MainWindow loadPresenzeTabella - " + ex.Message);
+            }
+
+
+        }
+
+        private void loadStoricoTabella()
+        {
+            try
+            {
+                gridStoricoUtente.Items.Clear();
+
+                foreach (Storico pres in utenteCorrente.ListStorico.Values)
+                {
+                    gridStoricoUtente.Items.Add(pres);
+                }
+
             }
             catch (Exception ex)
             {
@@ -381,7 +406,7 @@ namespace ClientManager
         private void btnInserisciVariazione_Click(object sender, RoutedEventArgs e)
         {
             double importo = Double.Parse(txtImportoVariazione.Text);
-            VariazioneEconomica var = new VariazioneEconomica(datePickerVariazione.SelectedDate.Value,txtVariazione.Text, importo,Convert.ToBoolean(RbDare.IsChecked));
+            VariazioneEconomica var = new VariazioneEconomica(datePickerVariazione.SelectedDate.Value, txtVariazione.Text, importo, Convert.ToBoolean(RbDare.IsChecked));
 
             DBSqlLite.aggiungiVariazione(var);
             listVariazioni = DBSqlLite.readVariazioni();
@@ -390,10 +415,12 @@ namespace ClientManager
 
         private void dataGridVariazioni_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            VariazioneEconomica varToDelete = (VariazioneEconomica)dataGridVariazioni.SelectedItem;
-            if(varToDelete != null)
+            VariazioneEconomica varSelected = (VariazioneEconomica)dataGridVariazioni.SelectedItem;
+            if(varSelected != null)
             {
-                System.Windows.MessageBox.Show("Eliminare riga: " + varToDelete.Data + "," + (varToDelete.isDare() ? varToDelete.DescrizioneDare + "," + varToDelete.ImportoDare : varToDelete.DescrizioneAvere + "," + varToDelete.ImportoAvere));
+                btnEliminaVar.IsEnabled = true;
+                btnModificaVar.IsEnabled = true;
+                
             }
         }
 
@@ -428,8 +455,63 @@ namespace ClientManager
             if(utenteCorrente != null && gridPresenze.SelectedItem != null)
             {
                 Presenza pres = (Presenza)gridPresenze.SelectedItem;
-                windowEdit
+                WindowEdit windowEdit = new WindowEdit(pres);
+                windowEdit.ShowDialog();
+                loadPresenzeTabella();
             }
+        }
+
+        private void btnModificaVar_Click(object sender, RoutedEventArgs e)
+        {
+            if (utenteCorrente != null && dataGridVariazioni.SelectedItem != null)
+            {
+                VariazioneEconomica var = (VariazioneEconomica)dataGridVariazioni.SelectedItem;
+                WindowEdit windowEdit = new WindowEdit(var);
+                windowEdit.ShowDialog();
+                listVariazioni = DBSqlLite.readVariazioni();
+                loadVariazioni();
+            }
+                
+        }
+
+        private void btnEliminaVar_Click(object sender, RoutedEventArgs e)
+        {
+            VariazioneEconomica varSelected = (VariazioneEconomica)dataGridVariazioni.SelectedItem;
+            if (varSelected != null) { 
+                MessageBoxResult res = System.Windows.MessageBox.Show("Eliminare riga: " + varSelected.Data + "," + (varSelected.isDare() ? varSelected.DescrizioneDare + "," + varSelected.ImportoDare : varSelected.DescrizioneAvere + "," + varSelected.ImportoAvere));
+                if(res == MessageBoxResult.Yes)
+                {
+                    DBSqlLite.eliminaVariazione(varSelected);
+                    listVariazioni = DBSqlLite.readVariazioni();
+                    loadVariazioni();
+                }
+            }
+        }
+
+        private void btnInserisciStorico_Click(object sender, RoutedEventArgs e)
+        {
+            double importo = Double.Parse(txtImportoStorico.Text);
+            Storico stor = new Storico();
+            stor.Data = datePickerStorico.SelectedDate.Value;
+            stor.Descr = txtDescrStorico.Text;
+            stor.Fattura = txtFattura.Text;
+            stor.Importo = importo;
+            stor.Idcliente = utenteCorrente.Identifier;
+
+
+            DBSqlLite.aggiungiStorico(stor);
+            utenteCorrente.ListStorico = DBSqlLite.readStorico(utenteCorrente.Identifier);
+            loadStoricoTabella();
+        }
+
+        private void btnEliminaStorico_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnModificaStorico_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

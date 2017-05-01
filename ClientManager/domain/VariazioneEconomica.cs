@@ -8,6 +8,7 @@ namespace ClientManager.domain
 {
     public class VariazioneEconomica
     {
+        private int idVariazione;
         private DateTime data;
         private string descrizioneDare = "";
         private double importoDare = 0;
@@ -110,6 +111,19 @@ namespace ClientManager.domain
             set
             {
                 importoAvere = value;
+            }
+        }
+
+        public int IdVariazione
+        {
+            get
+            {
+                return idVariazione;
+            }
+
+            set
+            {
+                idVariazione = value;
             }
         }
 

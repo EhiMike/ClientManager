@@ -359,6 +359,11 @@ namespace ClientManager
             return serial;
         }
 
+        public static bool checkVariazioneCompleta(string txtVar,string txtImporto)
+        {
+            return !String.IsNullOrEmpty(txtVar) && !String.IsNullOrEmpty(txtImporto);
+        }
+
 
     }
 

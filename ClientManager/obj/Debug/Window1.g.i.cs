@@ -40,6 +40,110 @@ namespace ClientManager {
     /// </summary>
     public partial class Window1 : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
+        
+        #line 25 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblData;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 26 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DatePicker datePickerVariazione;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 27 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblOraIn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 28 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblOraOut;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 29 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblData_Copy;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 30 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox textBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 31 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox textBox_Copy;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 32 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox textBox_Copy1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 33 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DatePicker datePickerVariazione_Copy;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 34 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblData_Copy1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 35 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblData_Copy2;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 36 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.RadioButton RbDare;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 37 "..\..\Window1.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.RadioButton rbAvere;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -68,6 +172,48 @@ namespace ClientManager {
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
         void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {
+            switch (connectionId)
+            {
+            case 1:
+            this.lblData = ((System.Windows.Controls.Label)(target));
+            return;
+            case 2:
+            this.datePickerVariazione = ((System.Windows.Controls.DatePicker)(target));
+            return;
+            case 3:
+            this.lblOraIn = ((System.Windows.Controls.Label)(target));
+            return;
+            case 4:
+            this.lblOraOut = ((System.Windows.Controls.Label)(target));
+            return;
+            case 5:
+            this.lblData_Copy = ((System.Windows.Controls.Label)(target));
+            return;
+            case 6:
+            this.textBox = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 7:
+            this.textBox_Copy = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 8:
+            this.textBox_Copy1 = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 9:
+            this.datePickerVariazione_Copy = ((System.Windows.Controls.DatePicker)(target));
+            return;
+            case 10:
+            this.lblData_Copy1 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 11:
+            this.lblData_Copy2 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 12:
+            this.RbDare = ((System.Windows.Controls.RadioButton)(target));
+            return;
+            case 13:
+            this.rbAvere = ((System.Windows.Controls.RadioButton)(target));
+            return;
+            }
             this._contentLoaded = true;
         }
     }
