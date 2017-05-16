@@ -23,10 +23,10 @@ namespace ClientManager.support
                     "VALUES('"+ utente.Identifier+"','" + utente.Nome + "','" + utente.Cognome + "','" + utente.Sesso + "','" + utente.CodiceFiscale + "','" +
                     utente.DataDiNascita.ToShortDateString() + "','" + utente.LuogoNascita + "','" + utente.Email + "','" + utente.Telefono + "','" +
                     utente.Indirizzo + "','" + utente.Provincia.Abbr + "','" + utente.Stato + "','" + utente.ScadenzaAbb.ToShortDateString() + "','" +
-                     utente.ScadenzaVisitaMedica.ToShortDateString() + "','" + utente.Attivo + "')" ;
+                     utente.ScadenzaVisitaMedica.ToShortDateString() + "','" + utente.Status + "')" ;
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
-
+                Helper.loggerDBOperation(sql);
             }
             catch (Exception ex)
             {
@@ -54,23 +54,41 @@ namespace ClientManager.support
                 SQLiteDataReader rdr = command.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Utente user = new Utente();
-                    user.Identifier = rdr["idcliente"].ToString();
-                    user.Nome = rdr["nomeCl"].ToString();
-                    user.Cognome = rdr["cognome"].ToString();
-                    user.Sesso = rdr["sesso"].ToString();
-                    user.CodiceFiscale = rdr["codiceFiscale"].ToString();
-                    user.DataDiNascita = Convert.ToDateTime(rdr["dataNascita"].ToString());
-                    user.LuogoNascita = rdr["luogoNascita"].ToString();
-                    user.Email = rdr["email"].ToString();
-                    user.Telefono = rdr["telefono"].ToString();
-                    user.Indirizzo = rdr["indirizzo"].ToString();
-                    user.Provincia = new Provincia(rdr["provC"].ToString(), rdr["provN"].ToString(), rdr["provR"].ToString());
-                    user.Stato = rdr["stato"].ToString();
-                    user.ScadenzaAbb = Convert.ToDateTime(rdr["scadAbb"].ToString());
-                    user.ScadenzaVisitaMedica = Convert.ToDateTime(rdr["scadVisita"].ToString());
-                    user.Attivo = Convert.ToBoolean(rdr["stato_cliente"].ToString());
-                    listClienti.Add(user.Identifier, user);
+                    try
+                    {
+                        Utente user = new Utente();
+                        user.Identifier = rdr["idcliente"].ToString();
+                        user.Nome = rdr["nomeCl"].ToString();
+                        user.Cognome = rdr["cognome"].ToString();
+                        user.Sesso = rdr["sesso"].ToString();
+                        user.CodiceFiscale = rdr["codiceFiscale"].ToString();
+                        user.DataDiNascita = Convert.ToDateTime(rdr["dataNascita"].ToString());
+                        user.LuogoNascita = rdr["luogoNascita"].ToString();
+                        user.Email = rdr["email"].ToString();
+                        user.Telefono = rdr["telefono"].ToString();
+                        user.Indirizzo = rdr["indirizzo"].ToString();
+                        user.Provincia = new Provincia(rdr["provC"].ToString(), rdr["provN"].ToString(), rdr["provR"].ToString());
+                        user.Stato = rdr["stato"].ToString();
+                        user.ScadenzaAbb = Convert.ToDateTime(rdr["scadAbb"].ToString());
+                        user.ScadenzaVisitaMedica = Convert.ToDateTime(rdr["scadVisita"].ToString());
+                        try
+                        {
+                            user.Status = Convert.ToInt32(rdr["stato_cliente"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            if (Convert.ToBoolean(rdr["stato_cliente"].ToString()))
+                            {
+                                user.Status = 1;
+                            }else
+                            {
+                                user.Status = 0;
+                            }
+                        }
+                        listClienti.Add(user.Identifier, user);
+                    }catch(Exception ex){
+                        Helper.Logger("class=DBSqlLite readCliente "+ ex.Message);
+                    }
                 }
 
                 if (rdr != null)
@@ -137,11 +155,11 @@ namespace ClientManager.support
                    "',email ='" + utente.Email +"',telefono ='" + utente.Telefono +
                    "',indirizzo ='" + utente.Indirizzo + "',provincia ='" + utente.Provincia.Abbr +"',stato ='" + utente.Stato +
                    "',scadAbb ='" + utente.ScadenzaAbb.ToShortDateString() +"',scadVisita ='" +  utente.ScadenzaVisitaMedica.ToShortDateString() +
-                   "',stato_cliente ='" + utente.Attivo + "'"
+                   "',stato_cliente ='" + utente.Status + "'"
                    + "WHERE idcliente =" + utente.Identifier;
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 SQLiteDataReader rdr = command.ExecuteReader();
-                
+                Helper.loggerDBOperation(sql);
             }
             catch (Exception ex)
             {
@@ -165,6 +183,7 @@ namespace ClientManager.support
                 
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
+                Helper.loggerDBOperation(sql);
 
                 sql = "SELECT MAX(idpresenze) as id FROM presenze";
                 command = new SQLiteCommand(sql, m_dbConnection);
@@ -198,7 +217,7 @@ namespace ClientManager.support
                     + " where idpresenze = " + pres.IdPresenza;
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
-
+                Helper.loggerDBOperation(sql);
             }
             catch (Exception ex)
             {
@@ -221,7 +240,7 @@ namespace ClientManager.support
                 + " where idpresenze = " + pres.IdPresenza;
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
-
+                Helper.loggerDBOperation(sql);
             }
             catch (Exception ex)
             {
@@ -258,6 +277,7 @@ namespace ClientManager.support
                 {
                     var.IdVariazione = Convert.ToInt32(rdr["id"].ToString());
                 }
+                Helper.loggerDBOperation(sql);
             }
             catch (Exception ex)
             {
@@ -292,7 +312,7 @@ namespace ClientManager.support
                     + " where idvariazioni = " + variazione.IdVariazione;
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
-
+                Helper.loggerDBOperation(sql);
             }
             catch (Exception ex)
             {
@@ -317,7 +337,7 @@ namespace ClientManager.support
                     + " where idvariazioni = " + variazione.IdVariazione;
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
-
+                Helper.loggerDBOperation(sql);
             }
             catch (Exception ex)
             {
@@ -375,6 +395,7 @@ namespace ClientManager.support
 
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
+                Helper.loggerDBOperation(sql);
             }
             catch (Exception ex)
             {
@@ -399,7 +420,7 @@ namespace ClientManager.support
                     + " where idabbonamento = " + storico.Idstorico;
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
-
+                Helper.loggerDBOperation(sql);
             }
             catch (Exception ex)
             {
@@ -422,7 +443,7 @@ namespace ClientManager.support
                     + " where idabbonamento = " + storico.Idstorico;
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
-
+                Helper.loggerDBOperation(sql);
 
 
             }

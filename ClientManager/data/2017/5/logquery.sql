@@ -1,0 +1,3 @@
+16/05/2017 15:14:18 -  UPDATE storico SET data = '16-05-2017',descr = 'test log',importo = '52',fattura = '65780',idcliente = '20174522159' where idabbonamento = 3
+16/05/2017 15:14:18 -  UPDATE variazioni SET data = '16-05-2017',descr = 'test log Fattura 65780',importo = '52',dare = 'True' where idvariazioni = 6
+16/05/2017 15:15:23 - UPDATE clienti SET nome = 'MICHAEL', cognome ='FERRONATO',sesso ='M',codiceFiscale ='FRRMHL90T01E970Q' ,dataNascita ='01/12/1990',luogoNascita ='MAROSTICA',email ='buahahmuahahbastacosi@gmail.com',telefono ='3269875425',indirizzo ='VIA MONTALE 17 A',provincia ='VI',stato ='ITALIA',scadAbb ='30/04/2017',scadVisita ='29/04/2017',stato_cliente ='True'WHERE idcliente =20174522159

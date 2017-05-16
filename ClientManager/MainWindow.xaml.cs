@@ -22,6 +22,7 @@ namespace ClientManager
         private Utente utenteCorrente = null;
         private SortedList<string,Utente> listaUtenti;
         private List<VariazioneEconomica> listVariazioni;
+        private bool startup = true;
 
         private int showClienti = 3; // 3 -> tutti,1 -> attivi,2 -> non attivi,
 
@@ -83,7 +84,7 @@ namespace ClientManager
             cbClient.Items.Clear();
             foreach(Utente user in listaUtenti.Values)
             {
-                if(showClienti == 3 || (showClienti == 1 && user.Attivo) || (showClienti == 2 && !user.Attivo))
+                if(showClienti == 3 || (showClienti == 1 && user.isAttivo()) || (showClienti == 2 && !user.isAttivo()))
                 {
                     cbClient.Items.Add(user.Cognome + " " + user.Nome);
                 } 
@@ -120,7 +121,7 @@ namespace ClientManager
 
                     btnCI.IsEnabled = File.Exists(utenteCorrente.getDocumentPath("CI"));
                     btnVisita.IsEnabled = File.Exists(utenteCorrente.getDocumentPath("VM"));
-                    checkAttivo.IsChecked = utenteCorrente.Attivo;
+                    checkAttivo.IsChecked = utenteCorrente.isAttivo();
                     if(utenteCorrente.ListPresenze.Count > 0)
                     {
                         Presenza pres = utenteCorrente.ListPresenze[utenteCorrente.getLastKey()];
@@ -243,6 +244,7 @@ namespace ClientManager
             {
                 trovaUtente(cbClient.SelectedItem.ToString());
             }
+            startup = false;
         }
 
         private void btnVisita_Click(object sender, RoutedEventArgs e)
@@ -262,7 +264,7 @@ namespace ClientManager
                 MessageBoxResult result = System.Windows.MessageBox.Show("Eliminando il cliente verranno perse tutte le sue informazioni e la cronologia.Eliminare?", "Attezione", MessageBoxButton.YesNo);
                 if (MessageBoxResult.Yes == result)
                 {
-                    utenteCorrente.Attivo = false;
+                    utenteCorrente.Status = -1;
                     DBSqlLite.modificaCliente(utenteCorrente);
                     reloadUtenti();
                 }
@@ -384,7 +386,7 @@ namespace ClientManager
 
         private bool checkVariazioneCompleta()
         {
-            return !String.IsNullOrEmpty(txtVariazione.Text) && !String.IsNullOrEmpty(txtImportoVariazione.Text);
+            return !String.IsNullOrEmpty(txtVariazione.Text) && !String.IsNullOrEmpty(txtImportoVariazione.Text) && datePickerVariazione.SelectedDate != null;
         }
 
         private void txtVariazione_TextChanged(object sender, TextChangedEventArgs e)
@@ -397,7 +399,7 @@ namespace ClientManager
             btnInserisciVariazione.IsEnabled = checkVariazioneCompleta();
         }
 
-        private void txtImportoVariazione_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void txtImporto_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9,]+");
             e.Handled = regex.IsMatch(e.Text);
@@ -426,9 +428,9 @@ namespace ClientManager
 
         private void checkAttivo_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            if(utenteCorrente != null)
+            if(utenteCorrente != null && !startup)
             {
-                utenteCorrente.Attivo = checkAttivo.IsChecked.Value;
+                utenteCorrente.Status = checkAttivo.IsChecked.Value?1:0;
                 DBSqlLite.modificaCliente(utenteCorrente);
                 reloadUtenti();
             }
@@ -488,8 +490,14 @@ namespace ClientManager
             }
         }
 
+        private bool checkStoricoCompleto()
+        {
+            return !String.IsNullOrEmpty(txtDescrStorico.Text) && !String.IsNullOrEmpty(txtImportoStorico.Text) && datePickerStorico.SelectedDate != null;
+        }
+
         private void btnInserisciStorico_Click(object sender, RoutedEventArgs e)
         {
+
             double importo = Double.Parse(txtImportoStorico.Text);
             Storico stor = new Storico();
             stor.Data = datePickerStorico.SelectedDate.Value;
@@ -541,6 +549,22 @@ namespace ClientManager
                 loadVariazioni();
             }
         }
+
+        private void txtStorico_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           btnInserisciStorico.IsEnabled = checkStoricoCompleto();
+        }
+
+        private void datePickerStorico_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnInserisciStorico.IsEnabled = checkStoricoCompleto();
+        }
+
+        private void datePickerVariazione_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnInserisciVariazione.IsEnabled = checkVariazioneCompleta();
+        }
+
 
         //private void tabControlGeneral_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{

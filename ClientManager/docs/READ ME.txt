@@ -1,18 +1,23 @@
 TODO:
 
 - versione portable e fissa
-OK - modifica ed elimina VariazioneEconomica -> P - F
+
 - selezione intervallo temporale Variazioni oppure per anno -> P - F
-- per ogni iscritto avere uno storico con:
+- abilitazione  -> F
+
+16/5/2017
+OK - intorduzione stato Eliminato nel db con valore -1
+OK - file giornaliero di backup su testo delle operazioni su db fatte (insert/update/delete) -> F
+OK - modifica ed elimina VariazioneEconomica -> P - F
+OK - per ogni iscritto avere uno storico con:
 	* pagamento
 	* importo
 	* data
 	* n fattura
-- fare tab storico con pulsante aggiungi/modifica/elimina pagamento che aggiunge il pagamento come variazione economica e associa il cliente
+	* idvariazione 
+OK - fare tab storico con pulsante aggiungi/modifica/elimina pagamento che aggiunge il pagamento come variazione economica e associa il cliente
 OK - pulsante modifica che visualizza una finestra di modifica comuen per tutti
 OK - elimina o modifica Ingresso/Uscita -> P - F
-- file giornaliero di backup su testo delle operazioni su db fatte (insert/update/delete) -> F
-- abilitazione  -> F
 
 12/4/2017
 OK - elimina Utente -> P - F

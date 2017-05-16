@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Management;
+using System.Threading;
 using System.Windows;
 using System.Xml.Linq;
 
@@ -17,9 +18,12 @@ namespace ClientManager
         private static List<String> stati = new List<String>();
         public static string pathBin = getBaseDirectory() + "\\bin\\";
         public static string pathData = getBaseDirectory() + "\\data\\";
+        public static string pathSQL = getBaseDirectory() + "\\SQL\\";
         public static string pathAppData = getAppDataFolder() + "\\ClientManager\\";
         public static string pathUsers = pathData + "users\\";
         public static string formatDate = "dd/MM/yyyy";
+
+        private static string nameDB = "ClientManager.sqlite";
 
         const string userRoot = "HKEY_CURRENT_USER";
         const string subkey = "ClientManager";
@@ -362,6 +366,41 @@ namespace ClientManager
         public static bool checkVariazioneCompleta(string txtVar,string txtImporto)
         {
             return !String.IsNullOrEmpty(txtVar) && !String.IsNullOrEmpty(txtImporto);
+        }
+
+        public static void loggerDBOperation(string str)
+        {
+            try
+            {
+                DateTime now = DateTime.Now;
+                string monthPath = pathData + now.Year + "\\" + now.Month +"\\";
+                if (!Directory.Exists(monthPath))
+                {
+                    Directory.CreateDirectory(monthPath);
+                }
+                string dayFile = monthPath +"logquery.sql";
+                if (!File.Exists(dayFile))
+                {
+                    FileStream filetto = File.Create(dayFile);
+                    File.Copy(pathSQL + nameDB, monthPath + nameDB);
+                    filetto.Close();
+                }
+
+                int count = 0;
+                while (!File.Exists(dayFile) && count < 10)
+                {
+                    Thread.Sleep(100);
+                }
+                System.IO.StreamWriter file = new System.IO.StreamWriter(dayFile, true);
+                file.WriteLine(DateTime.Now.ToString() + " - " + str);
+
+                file.Close();
+
+            }
+            catch(Exception ex)
+            {
+                Logger("class=Helper loggerDBOperation " + ex.Message);
+            }
         }
 
 

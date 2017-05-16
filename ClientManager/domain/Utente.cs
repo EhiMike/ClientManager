@@ -13,7 +13,7 @@ namespace ClientManager
         private string nome, cognome, codiceFiscale,indirizzo,luogoNascita,stato,sesso,telefono,email;
         private Provincia provincia;
         private DateTime dataDiNascita, scadenzaAbb, scadenzaVisitaMedica;
-        private Boolean attivo = true;
+        private int status = 0; // -1 -> cancellato,0 -> non attivo, 1 -> attivo
         private Abbonamento abbonamento;
         private SortedList<DateTime, Presenza> listPresenze = new SortedList<DateTime, Presenza>();
         private SortedList<int, Storico> listStorico = new SortedList<int, Storico>();
@@ -214,18 +214,7 @@ namespace ClientManager
             }
         }
 
-        public bool Attivo
-        {
-            get
-            {
-                return attivo;
-            }
-
-            set
-            {
-                attivo = value;
-            }
-        }
+        
 
         public Abbonamento Abbonamento
         {
@@ -262,6 +251,19 @@ namespace ClientManager
             }
         }
 
+        public int Status
+        {
+            get
+            {
+                return status;
+            }
+
+            set
+            {
+                status = value;
+            }
+        }
+
         public string getPathUser()
         {
             return Helper.pathData + Identifier + "\\";
@@ -282,6 +284,11 @@ namespace ClientManager
         {
             DateTime lastKey = ListPresenze.Keys[ListPresenze.Keys.Count - 1];
             return lastKey;
+        }
+
+        public bool isAttivo()
+        {
+            return status == 1;
         }
     }
 }

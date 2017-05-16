@@ -20,3 +20,7 @@ Nome parametro: value
 01/05/2017 16:20:43 - class=DBSqlLite readStorico -SQLite error
 no such column: icliente
 16/05/2017 11:05:37 - class=DBSqlLite readStorico -Chiave già utilizzata da una voce esistente.
+16/05/2017 14:50:40 - class=Helper loggerDBOperation Il processo non può accedere al file 'C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\data\2017\5\16.sql' perché è in uso da un altro processo.
+16/05/2017 14:53:11 - class=Helper loggerDBOperation Il processo non può accedere al file 'C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\data\2017\5\16.sql' perché è in uso da un altro processo.
+16/05/2017 15:05:34 - class=Helper loggerDBOperation Il processo non può accedere al file 'C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\data\2017\5.sql' perché è in uso da un altro processo.
+16/05/2017 15:05:51 - class=Helper loggerDBOperation Il processo non può accedere al file 'C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\data\2017\5.sql' perché è in uso da un altro processo.

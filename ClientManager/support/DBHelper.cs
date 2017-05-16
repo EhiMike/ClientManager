@@ -79,7 +79,21 @@ namespace ClientManager
                     user.Stato = rdr.GetString(13);
                     user.ScadenzaAbb = rdr.GetDateTime(14);
                     user.ScadenzaVisitaMedica = rdr.GetDateTime(15);
-                    user.Attivo = rdr.GetString(16).Equals("1");
+                    try
+                    {
+                        user.Status = Convert.ToInt32(rdr.GetString(16).ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        if (Convert.ToBoolean(rdr["stato_cliente"].ToString()))
+                        {
+                            user.Status = 1;
+                        }
+                        else
+                        {
+                            user.Status = 0;
+                        }
+                    }
                     listClienti.Add(user.Identifier, user);
                 }
 
@@ -164,7 +178,7 @@ namespace ClientManager
                 cmd.Parameters.AddWithValue("@stato", utente.Stato);
                 cmd.Parameters.AddWithValue("@abb", utente.ScadenzaAbb);
                 cmd.Parameters.AddWithValue("@visita", utente.ScadenzaVisitaMedica);
-                cmd.Parameters.AddWithValue("@attivo", utente.Attivo ? "1" : "-1");
+                cmd.Parameters.AddWithValue("@attivo", utente.Status);
 
                 cmd.ExecuteNonQuery();
 
@@ -213,7 +227,7 @@ namespace ClientManager
                 cmd.Parameters.AddWithValue("@stato", utente.Stato);
                 cmd.Parameters.AddWithValue("@abb", utente.ScadenzaAbb);
                 cmd.Parameters.AddWithValue("@visita", utente.ScadenzaVisitaMedica);
-                cmd.Parameters.AddWithValue("@attivo", utente.Attivo ? "1":"-1");
+                cmd.Parameters.AddWithValue("@attivo", utente.Status);
 
                 cmd.ExecuteNonQuery();
 
