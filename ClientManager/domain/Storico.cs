@@ -14,6 +14,7 @@ namespace ClientManager.domain
         private string descr;
         private string fattura;
         private Double importo;
+        private int idvariazione;
 
         public Storico() { }
 
@@ -92,6 +93,19 @@ namespace ClientManager.domain
             set
             {
                 importo = value;
+            }
+        }
+
+        public int Idvariazione
+        {
+            get
+            {
+                return idvariazione;
+            }
+
+            set
+            {
+                idvariazione = value;
             }
         }
     }

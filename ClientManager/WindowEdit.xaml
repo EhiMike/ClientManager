@@ -5,39 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientManager"
         mc:Ignorable="d"
-        Title="Modifica" Height="168" Width="763" Icon="pack://siteoforigin:,,,/bin/gym.ico">
+        Title="Modifica" Height="250" Width="820" Icon="pack://siteoforigin:,,,/bin/gym.ico" MaxHeight="250" MinHeight="250" MinWidth="270">
     <Grid Margin="0,0,0,11">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40" Name="rowPresenza"/>
-            <RowDefinition Height="45" Name="rowVariazione"/>
-            <RowDefinition Height="40" Name="rowConferma"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="72*"/>
-            <ColumnDefinition Width="98*"/>
-            <ColumnDefinition Width="95*"/>
-            <ColumnDefinition Width="96*"/>
-            <ColumnDefinition Width="118"/>
-            <ColumnDefinition Width="101*"/>
-            <ColumnDefinition Width="77"/>
-            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition x:Name="colPres1" Width="90"/>
+            <ColumnDefinition x:Name="colPres2" Width="35*"/>
+            <ColumnDefinition x:Name="colPres3" Width="35*"/>
+            <ColumnDefinition x:Name="colVar1" Width="90"/>
+            <ColumnDefinition x:Name="colVar2" Width="45*"/>
+            <ColumnDefinition x:Name="colVar3" Width="35*"/>
+            <ColumnDefinition x:Name="colStor1" Width="90"/>
+            <ColumnDefinition x:Name="colStor2" Width="76*"/>
+            <ColumnDefinition x:Name="colStor3" Width="45*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblDataPres" Content="Data" Height="28" Margin="6,6,6,7" VerticalAlignment="Center" IsManipulationEnabled="True"/>
-        <DatePicker x:Name="datePickerIngressi" Height="28" Margin="8,5,10,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="1"/>
-        <Label x:Name="lblOraIn" Content="Ora ingresso" Height="28" Margin="5,6,6,0" VerticalAlignment="Top" RenderTransformOrigin="3.126,0.774" Grid.Column="4"/>
-        <Label x:Name="lblOraOut" Content="Ora uscita" Height="28" Margin="5,6,6,0" VerticalAlignment="Top" Grid.Column="6"/>
-        <Label x:Name="lblDataVar" Content="Data" Height="28" Margin="6,9,6,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxOraIn" Grid.Column="5" Height="28" Margin="5,6,4,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxOraOut" Grid.Column="7" Height="28" Margin="4,6,7,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxDescrVar" Grid.Column="4" Height="27" Margin="10,9,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" RenderTransformOrigin="0.319,1.524" Grid.Row="1"/>
-        <DatePicker x:Name="datePickerVariazione" Height="28" Margin="5,9,5,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" IsManipulationEnabled="True"/>
+        <Label x:Name="lblDataPres" Content="Data" Height="28" Margin="5,6" VerticalAlignment="Center" IsManipulationEnabled="True"/>
+        <DatePicker x:Name="datePickerIngressi" Height="28" Margin="5,6,5,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label x:Name="lblOraIn" Content="Ora ingresso" Height="28" Margin="5,6,6,0" VerticalAlignment="Top" RenderTransformOrigin="3.126,0.774" Grid.Row="1"/>
+        <Label x:Name="lblOraOut" Content="Ora uscita" Height="28" Margin="5,6,6,0" VerticalAlignment="Top" Grid.Row="2"/>
+        <Label x:Name="lblDataVar" Content="Data" Height="28" Margin="6,9,6,0" VerticalAlignment="Top" Grid.Column="3"/>
+        <TextBox x:Name="textBoxOraIn" Grid.Column="1" Height="28" Margin="5,6,5,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxOraOut" Grid.Column="1" Height="28" Margin="5,6,5,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxDescrVar" Grid.Column="4" Height="27" Margin="5,9,5,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" RenderTransformOrigin="0.319,1.524" Grid.Row="1" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <DatePicker x:Name="datePickerVariazione" Height="28" Margin="5,9,5,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="4" IsManipulationEnabled="True"/>
         <Label x:Name="lblDescrVar" Content="Descrizione" Height="28" Margin="6,8,10,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="3"/>
-        <Label x:Name="lblImportoVar" Content="Importo" Height="28" Margin="5,10,84,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2"/>
-        <RadioButton x:Name="RbDare" Content="DARE" Margin="5,5,10,21" IsChecked="True" Grid.Column="5" HorizontalContentAlignment="Stretch" MaxWidth="54" Grid.Row="1"/>
-        <RadioButton x:Name="rbAvere" Content="AVERE" Height="19" Margin="5,24,10,0" VerticalAlignment="Top" Grid.Column="5" MaxWidth="54" HorizontalContentAlignment="Stretch" Grid.Row="1"/>
-        <Button x:Name="btnConfirm" Content="Conferma" Grid.Column="3" Height="30" Margin="6,5,10,0" Grid.Row="2" VerticalAlignment="Top" Click="btnConfirm_Click"/>
-        <Button x:Name="btnAnnulla" Content="Annulla" Grid.Column="4" Height="30" Margin="15,5,10,0" Grid.Row="2" VerticalAlignment="Top" Click="btnAnnulla_Click"/>
-        <TextBox x:Name="textBoxImportoVar" Grid.Column="7" Height="28" Margin="4,9,7,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.Row="1" PreviewTextInput="textBoxImporto_PreviewTextInput"/>
+        <Label x:Name="lblImportoVar" Content="Importo" Height="28" Margin="5,10,6,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="4"/>
+        <RadioButton x:Name="RbDare" Content="DARE" Margin="5,3,6,18" IsChecked="True" Grid.Column="3" HorizontalContentAlignment="Stretch" MaxWidth="54" Grid.Row="2"/>
+        <RadioButton x:Name="rbAvere" Content="AVERE" Height="19" Margin="5,22,6,0" VerticalAlignment="Top" Grid.Column="3" MaxWidth="54" HorizontalContentAlignment="Stretch" Grid.Row="2" Grid.RowSpan="2"/>
+        <Button x:Name="btnConfirm" Content="Conferma" Grid.Column="3" Height="30" Margin="5" Grid.Row="4" VerticalAlignment="Top" Click="btnConfirm_Click"/>
+        <Button x:Name="btnAnnulla" Content="Annulla" Grid.Column="4" Height="30" Margin="5" Grid.Row="4" VerticalAlignment="Top" Click="btnAnnulla_Click"/>
+        <TextBox x:Name="textBoxImportoVar" Grid.Column="5" Height="28" Margin="5,9,5,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.Row="2" PreviewTextInput="textBoxImporto_PreviewTextInput" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblDataStorico" Content="Data" Height="28" Margin="5,6,5,0" VerticalAlignment="Top" Grid.Column="6"/>
+        <DatePicker x:Name="datePickerStorico" Height="28" Margin="5,6,5,0" VerticalAlignment="Top" Grid.Column="7" IsManipulationEnabled="True" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblDescrStorico" Content="Descrizione" Height="28" Margin="5,8,5,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="6"/>
+        <TextBox x:Name="textBoxDescrStorico" Grid.Column="7" Height="27" Margin="5,6,5,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" RenderTransformOrigin="0.319,1.524" Grid.Row="1" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblImportoStorico" Content="Importo" Height="28" Margin="5,6,5,0" VerticalAlignment="Top" Grid.Row="3" Grid.Column="6"/>
+        <TextBox x:Name="textBoxImportoStorico" Grid.Column="7" Height="28" Margin="5,6,5,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.Row="3" PreviewTextInput="textBoxImporto_PreviewTextInput" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblFatturaStorico" Content="Fattura N°" Height="28" Margin="5,6,5,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="6"/>
+        <TextBox x:Name="textBoxFatturaStorico" Grid.Column="7" Height="27" Margin="5,6,5,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" RenderTransformOrigin="0.319,1.524" Grid.Row="2" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

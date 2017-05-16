@@ -8,9 +8,9 @@
         Title="Gestione Palestra" Height="629.5" Width="937.375" Loaded="Window_Loaded" Icon="pack://siteoforigin:,,,/bin/gym.ico">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl x:Name="tabControlGeneral" Grid.ColumnSpan="2">
+        <TabControl x:Name="tabControlGeneral">
             <TabItem x:Name="tabItemClient" Header="Anagrafica">
                 <Grid Background="#FFE5E5E5">
                     <Grid.RowDefinitions>
@@ -111,8 +111,8 @@
                                 <TextBox x:Name="txtDescrStorico" Margin="5,5,5,0" TextWrapping="Wrap" TextChanged="txtVariazione_TextChanged" Grid.Column="2" VerticalAlignment="Top" Height="25"/>
                                 <TextBox x:Name="txtImportoStorico" Height="25" Margin="0,5,5,0" TextWrapping="Wrap" TextChanged="txtImportoVariazione_TextChanged" PreviewTextInput="txtImportoVariazione_PreviewTextInput" MaxWidth="70" MaxHeight="25" VerticalAlignment="Top" Grid.Column="6" HorizontalContentAlignment="Stretch" HorizontalAlignment="Right" MinWidth="75" Width="75"/>
                                 <Button x:Name="btnInserisciStorico" Content="Inserisci" Margin="5,5,5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" Grid.Column="7" MaxWidth="120" Click="btnInserisciStorico_Click"/>
-                                <Button x:Name="btnEliminaStorico" Content="Cancella" Margin="5,5,5,0" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" Grid.Column="8" MaxWidth="120" Click="btnEliminaStorico_Click"/>
-                                <Button x:Name="btnModificaStorico" Content="Modifica" Margin="5,5,5,0" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" Grid.Column="9" MaxWidth="120" RenderTransformOrigin="1.4,0.52" Click="btnModificaStorico_Click"/>
+                                <Button x:Name="btnEliminaStorico" Content="Cancella" Margin="5,5,5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" Grid.Column="8" MaxWidth="120" Click="btnEliminaStorico_Click"/>
+                                <Button x:Name="btnModificaStorico" Content="Modifica" Margin="5,5,5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" Grid.Column="9" MaxWidth="120" RenderTransformOrigin="1.4,0.52" Click="btnModificaStorico_Click"/>
                                 <Label x:Name="lblEuro" Content="€" Grid.Column="5" Height="25" Margin="5,5,5,0" VerticalAlignment="Top" MaxWidth="30" MinWidth="30" HorizontalContentAlignment="Center"/>
                                 <TextBox x:Name="txtFattura" Margin="5,5,5,0" TextWrapping="Wrap" TextChanged="txtVariazione_TextChanged" Grid.Column="4" VerticalAlignment="Top" Height="25"/>
                                 <Label x:Name="lblFattura" Content="Fattura N." Grid.Column="3" Height="25" Margin="5,5,5,0" VerticalAlignment="Top" MaxWidth="40" MinWidth="40" Padding="0,5"/>
@@ -140,7 +140,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Riepilogo">
-                <Grid Background="#FFE5E5E5" Margin="0,0,0,-34">
+                <Grid x:Name="gridRiepilogo" Background="#FFE5E5E5" Margin="0,0,0,-34">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="32*"/>
                     </Grid.ColumnDefinitions>

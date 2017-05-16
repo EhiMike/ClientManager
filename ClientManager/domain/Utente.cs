@@ -16,7 +16,7 @@ namespace ClientManager
         private Boolean attivo = true;
         private Abbonamento abbonamento;
         private SortedList<DateTime, Presenza> listPresenze = new SortedList<DateTime, Presenza>();
-        private SortedList<DateTime, Storico> listStorico = new SortedList<DateTime, Storico>();
+        private SortedList<int, Storico> listStorico = new SortedList<int, Storico>();
 
         public Utente(string id = null)
         {
@@ -249,7 +249,7 @@ namespace ClientManager
 
         }
 
-        public SortedList<DateTime, Storico> ListStorico
+        public SortedList<int, Storico> ListStorico
         {
             get
             {

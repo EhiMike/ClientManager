@@ -249,6 +249,15 @@ namespace ClientManager.support
 
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
+
+                sql = "SELECT MAX(idvariazioni) as id FROM variazioni";
+                command = new SQLiteCommand(sql, m_dbConnection);
+                SQLiteDataReader rdr = command.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    var.IdVariazione = Convert.ToInt32(rdr["id"].ToString());
+                }
             }
             catch (Exception ex)
             {
@@ -359,9 +368,9 @@ namespace ClientManager.support
             {
                 m_dbConnection.Open();
 
-                string sql = "insert into storico (idcliente,data,descr,fattura,importo) " +
+                string sql = "insert into storico (idcliente,data,descr,fattura,importo,idvariazione) " +
                     "VALUES('" + storico.Idcliente + "','" + storico.Data.ToString("dd-MM-yyyy") + "','" +
-                  storico.Descr + "','" + storico.Fattura + "','" + storico.Importo.ToString() + "')";
+                  storico.Descr + "','" + storico.Fattura + "','" + storico.Importo.ToString() + "','" + storico.Idvariazione + "')";
 
 
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
@@ -403,15 +412,40 @@ namespace ClientManager.support
             }
         }
 
-        public static SortedList<DateTime,Storico> readStorico(string idcliente)
+        public static void eliminaStorico(Storico storico)
         {
-            SortedList<DateTime, Storico> listStorico = new SortedList<DateTime, Storico>();
+            try
+            {
+                m_dbConnection.Open();
+
+                string sql = " DELETE FROM storico "
+                    + " where idabbonamento = " + storico.Idstorico;
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: {0}", ex.ToString());
+
+            }
+            finally
+            {
+                m_dbConnection.Close();
+            }
+        }
+
+        public static SortedList<int,Storico> readStorico(string idcliente)
+        {
+            SortedList<int, Storico> listStorico = new SortedList<int, Storico>();
             try
             {
 
                 m_dbConnection.Open();
 
-                string sql = "SELECT idabbonamento,idcliente,data,descr,importo,fattura FROM storico WHERE idcliente ='"+ idcliente + "'";
+                string sql = "SELECT idabbonamento,idcliente,data,descr,importo,fattura,idvariazione FROM storico WHERE idcliente ='"+ idcliente + "'";
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 SQLiteDataReader rdr = command.ExecuteReader();
 
@@ -424,7 +458,8 @@ namespace ClientManager.support
                     stor.Descr = rdr["descr"].ToString();
                     stor.Importo = Convert.ToDouble(rdr["importo"]);
                     stor.Fattura = rdr["fattura"].ToString();
-                    listStorico.Add(stor.Data,stor);
+                    stor.Idvariazione = Convert.ToInt32(rdr["idvariazione"]);
+                    listStorico.Add(stor.Idstorico, stor);
                 }
             }
             catch (Exception ex)

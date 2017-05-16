@@ -112,3 +112,6 @@ C:\Lavori\ClientManager\ClientManager\bin\Debug\EntityFramework.xml
 C:\Lavori\ClientManager\ClientManager\bin\Debug\EntityFramework.SqlServer.xml
 C:\Lavori\ClientManager\ClientManager\obj\Debug\WindowEdit.baml
 C:\Lavori\ClientManager\ClientManager\obj\Debug\ClientManager.csprojResolveAssemblyReference.cache
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\ClientManager.csproj.ClientManager.exe.config
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\WindowEdit.g.cs
+C:\Users\SICS 30\Documents\GitHub\ClientManager\ClientManager\obj\Debug\WindowEdit.baml

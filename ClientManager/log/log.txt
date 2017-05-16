@@ -19,3 +19,4 @@ Nome parametro: value
 01/05/2017 16:18:51 - class=DBSqlLite readClienti ->Connection was closed, statement was terminated
 01/05/2017 16:20:43 - class=DBSqlLite readStorico -SQLite error
 no such column: icliente
+16/05/2017 11:05:37 - class=DBSqlLite readStorico -Chiave già utilizzata da una voce esistente.

@@ -478,7 +478,7 @@ namespace ClientManager
         {
             VariazioneEconomica varSelected = (VariazioneEconomica)dataGridVariazioni.SelectedItem;
             if (varSelected != null) { 
-                MessageBoxResult res = System.Windows.MessageBox.Show("Eliminare riga: " + varSelected.Data + "," + (varSelected.isDare() ? varSelected.DescrizioneDare + "," + varSelected.ImportoDare : varSelected.DescrizioneAvere + "," + varSelected.ImportoAvere));
+                MessageBoxResult res = System.Windows.MessageBox.Show("Eliminare riga: " + varSelected.Data + "," + (varSelected.isDare() ? varSelected.DescrizioneDare + "," + varSelected.ImportoDare : varSelected.DescrizioneAvere + "," + varSelected.ImportoAvere),"",MessageBoxButton.YesNo);
                 if(res == MessageBoxResult.Yes)
                 {
                     DBSqlLite.eliminaVariazione(varSelected);
@@ -498,21 +498,58 @@ namespace ClientManager
             stor.Importo = importo;
             stor.Idcliente = utenteCorrente.Identifier;
 
-
+            VariazioneEconomica varEco = new VariazioneEconomica(stor.Data, stor.Descr + " Fattura " + stor.Fattura, importo, true);
+            
+            
+            DBSqlLite.aggiungiVariazione(varEco);
+            stor.Idvariazione = varEco.IdVariazione;
             DBSqlLite.aggiungiStorico(stor);
             utenteCorrente.ListStorico = DBSqlLite.readStorico(utenteCorrente.Identifier);
             loadStoricoTabella();
+            listVariazioni = DBSqlLite.readVariazioni();
+            loadVariazioni();
         }
 
         private void btnEliminaStorico_Click(object sender, RoutedEventArgs e)
         {
-
+            if(utenteCorrente != null && gridStoricoUtente.SelectedItem != null)
+            {
+                Storico stor = (Storico)gridStoricoUtente.SelectedItem;
+                if (stor != null)
+                {
+                    MessageBoxResult res = System.Windows.MessageBox.Show("Eliminare riga: " + stor.Data + "," + stor.Descr + "," + stor.Fattura, "", MessageBoxButton.YesNo);
+                    if (res == MessageBoxResult.Yes)
+                    {
+                        DBSqlLite.eliminaStorico(stor);
+                        utenteCorrente.ListStorico = DBSqlLite.readStorico(utenteCorrente.Identifier);
+                        loadStoricoTabella();
+                    }
+                }
+            }
         }
 
         private void btnModificaStorico_Click(object sender, RoutedEventArgs e)
         {
-
+            if (utenteCorrente != null && gridStoricoUtente.SelectedItem != null)
+            {
+                Storico stor = (Storico)gridStoricoUtente.SelectedItem;
+                WindowEdit windowEdit = new WindowEdit(stor);
+                windowEdit.ShowDialog();
+                utenteCorrente.ListStorico = DBSqlLite.readStorico(utenteCorrente.Identifier);
+                loadStoricoTabella();
+                listVariazioni = DBSqlLite.readVariazioni();
+                loadVariazioni();
+            }
         }
+
+        //private void tabControlGeneral_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if(tabControlGeneral.SelectedIndex == 2)
+        //    {
+        //        listVariazioni = DBSqlLite.readVariazioni();
+        //        loadVariazioni();
+        //    }
+        //}
     }
 
    
